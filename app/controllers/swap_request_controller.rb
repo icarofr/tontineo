@@ -1,0 +1,2 @@
+class SwapRequestController < ApplicationController
+end
