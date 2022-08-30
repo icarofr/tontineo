@@ -1,0 +1,2 @@
+class TontineController < ApplicationController
+end
