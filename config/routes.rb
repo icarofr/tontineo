@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   get 'user/new'
   get 'user/create'
   get 'user/update'
