@@ -1,21 +1,21 @@
-class TontineController < ApplicationController
+class TontinesController < ApplicationController
 	before_action :set_tontine, only: [:edit, :show, :destroy, :update]
 
 	def index
-	  @tontines = Tontine.all		
+	  @tontines = Tontine.all
 	end
 
 	def show
 	end
 
 	def new
-	  @tontine = Tontine.new	
+	  @tontine = Tontine.new
 	end
 
 	def create
 	  @tontine = Tontine.new(params_tontine)
 	  @tontine.user = current_user
-	  if @tontine.save 
+	  if @tontine.save
  	    redirect_to tontine_path(@tontine)
 	  else
 	  	render :new, status: :unprocessable_entity
@@ -35,7 +35,7 @@ class TontineController < ApplicationController
 		redirect_to tontines_path, status: :see_other
 	end
 
-	private 
+	private
 
 	def set_tontine
 		@tontine = Tontine.find(params[:id])
