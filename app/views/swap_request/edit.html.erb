@@ -1,0 +1,6 @@
+<%= simple_form_for @swap_request do |f| %>
+    <%= f.input :sender_id, value: @swap_request.sender_id %>
+    <%= f.input :receiver_id, value: @swap_request.receiver_id %>
+    <%= f.input :status, value: @swap_request.status %>
+    <%= f.submit %>
+<% end %>
