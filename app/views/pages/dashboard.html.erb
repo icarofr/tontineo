@@ -1,0 +1,26 @@
+<div container>
+	<h3 class="text-center"><i class="fa-solid fa-chart-line"></i> Dashboard</h3>
+	<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+	  <div class="container-fluid">
+	  	<%= link_to "En attente", dashboard_path(status: "pending"), class:"btn btn-warning"%>
+	  	<%= link_to "En cours", dashboard_path(status: "active"), class:"btn btn-primary"%>
+	  	<%= link_to "Terminée", dashboard_path(status: "done"), class:"btn btn-danger" %>
+      </div>
+      </div>
+	  	<% @tontines.each do |tontine|%>
+        <div class="card-trip">
+		  <% if tontine.status ==  params[:status]%>
+	  	  	  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+	  	  	  <div class="card-trip-infos">
+	    		  <div>
+		  	  	  	<h2>Nom de la tontine : <%= tontine.name %></h2>
+		  	  	  	<h2 class="btn btn-primary"><%= tontine.contribution  %> €/mois</h2>
+		  	  	  	<h2>Mois de départ : <%= tontine.start_month %></h2>
+		  	  	  	<h2>Jour de paiment : <%= tontine.participants %></h2>
+	    		  </div>
+    		  </div>
+		  <% end %>
+		   </div>
+	  	<% end %>
+	    
+</div>
