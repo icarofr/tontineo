@@ -15,14 +15,16 @@ class TontinesController < ApplicationController
 	def create
 	  @tontine = Tontine.new(params_tontine)
 	  @tontine.user = current_user
-	  if @tontine.save
- 	    redirect_to tontine_path(@tontine)
+
+	  if @tontine.save!
+ 	    redirect_to edit_tontine_path(@tontine)
 	  else
 	  	render :new, status: :unprocessable_entity
 	  end
 	end
 
 	def edit
+
 	end
 
 	def update
