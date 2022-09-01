@@ -1,0 +1,29 @@
+
+<div class="img">
+  <img src="" alt="logo">
+</div>
+
+<div>
+  <p class="logo_title">Tontineo</p>
+</div>
+
+<div>
+  <h1 class="title_style">  </h1>
+</div>
+
+
+<div class="tontine_description">
+   <%= @tontine.name %></p>
+  <p> Montant Total <p> <p><%= @tontine.contribution  %> € </p>
+  <p> Début de la tontine : <%= @tontine.start_month %></p>
+  <p> Date de réception : <%= @tontine.payment_day %></p>
+  <% @tontine.members.each do |member| %>
+    <%= member.user_id %>
+    <br>
+  <% end %>
+   <p>Statut de la tontine :  <%= @tontine.status%></p>
+</div>
+
+
+
+<%# <%= render 'show_admin' ,tontine: @tontine %>
