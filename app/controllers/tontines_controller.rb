@@ -6,6 +6,7 @@ class TontinesController < ApplicationController
   end
 
   def show
+    @is_owner = @tontine.user.id == current_user.id
   end
 
   def new
