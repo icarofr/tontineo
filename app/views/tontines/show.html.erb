@@ -1,5 +1,5 @@
 
-<div class="img">
+<div class="img img-circle">
   <img src="" alt="logo">
 </div>
 
@@ -18,7 +18,7 @@
   <p> Début de la tontine : <%= @tontine.start_month %></p>
   <p> Date de réception : <%= @tontine.payment_day %></p>
   <% @tontine.members.each do |member| %>
-    <%= member.user_id %>
+    <%= member.user.first_name %>
     <br>
   <% end %>
    <p>Statut de la tontine :  <%= @tontine.status%></p>
