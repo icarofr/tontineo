@@ -2,24 +2,21 @@
 
 
 
-.title_style {
+.tontine_title {
   color: #3B8C4D;
   margin: 0 auto;
 
 }
 
 .tontine_description {
-  position: relative;
-  top: 70px;
   font-family:'Courier New', Courier, monospace;
   color: #3B8C4D;
   margin: 0 auto;
-  padding:20px ;
+
 }
 
 
 img {
-  // justify-content: left;
   border-radius: 50%;
 }
 
@@ -27,4 +24,12 @@ p.logo_title  {
   color: #3B8C4D;
   font-size: larger;
   margin: 0 auto;
+}
+
+.inline {
+  display: list-item inline;;
+}
+
+.members_list  {
+  padding: 20px;
 }
