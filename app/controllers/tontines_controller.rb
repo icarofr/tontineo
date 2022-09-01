@@ -6,6 +6,7 @@ class TontinesController < ApplicationController
 	end
 
 	def show
+
 	end
 
 	def new
@@ -19,7 +20,7 @@ class TontinesController < ApplicationController
  	    redirect_to tontine_path(@tontine)
 	  else
 	  	render :new, status: :unprocessable_entity
-	  end
+	  end 
 	end
 
 	def edit
@@ -42,11 +43,6 @@ class TontinesController < ApplicationController
 	end
 
 	def params_tontine
-		params.require(:tontine).permit(:name,
-	    :contribution,
-	    :start_month,
-	    :payment_day,
-        :participants,
-        :status)
+		params.require(:tontine).permit(:name, :contribution, :start_month, :payment_day, :participants, :status)
 	end
 end
