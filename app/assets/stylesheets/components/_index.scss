@@ -4,3 +4,10 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "dashboard";
+@import "navbar";
+@import "footer";
+@import "pages";
+
+.content-wrapper {
+  min-height: calc(100vh - 74px - 100px);
+}
