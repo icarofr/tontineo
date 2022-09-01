@@ -1,0 +1,5 @@
+<%= simple_form_for @swap_request, url: "/swap_request", method: :post do |f| %>
+  <%= f.input :receiver_id %>
+  <%= f.input :tontine_id %>
+  <%= f.submit %>
+<% end %>
