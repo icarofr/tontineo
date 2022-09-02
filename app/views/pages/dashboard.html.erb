@@ -1,5 +1,22 @@
 <div container>
 	<h3 class="text-center"><i class="fa-solid fa-chart-line"></i> Dashboard</h3>
+  <% unless @pending_member.nil? %>
+    <% @pending_member.each do |member| %>
+    <div>
+      <div>
+        <%= member.tontine.name %>
+      </div>
+      <div>
+        <%= link_to "Accept", accepte_member_tontine_path(member.tontine) %>
+      </div>
+      <div>
+        <%= link_to "Decline", decline_member_tontine_path(member.tontine) %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+
+
 	<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 	  <div class="container-fluid">
 	  	<%= link_to "En attente", dashboard_path(status: "pending"), class:"btn btn-warning"%>
@@ -22,5 +39,5 @@
 		  <% end %>
 		   </div>
 	  	<% end %>
-	    
+
 </div>
