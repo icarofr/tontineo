@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard"
 
   resources :swap_request
-  resources :tontines
+  resources :tontines do
+    member do
+      get :list_users_from_company
+      get :add_users_to_tontine
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -21,10 +21,19 @@ payment_day = start_month+30
 
 (1..50).each do |i|
     User.create(
-        email: "email#{i}@tontineo.com", 
-        password: "password#{i}", 
-        first_name: FIRST_NAMES.sample, 
+        email: "email#{i}@tontineo.com",
+        password: "password#{i}",
+        first_name: FIRST_NAMES.sample,
         last_name: LAST_NAMES.sample)
+end
+
+(60..68).each do |i|
+    User.create(
+        email: "email#{i}@tontineo.com",
+        password: "password#{i}",
+        first_name: FIRST_NAMES.sample,
+        last_name: LAST_NAMES.sample,
+        company: "Le Wagon")
 end
 
 (1..10).each do |i|
@@ -33,7 +42,7 @@ end
 
     (1..10).each do |j|
         user = User.all[user_counter]
-        if user.nil? 
+        if user.nil?
              user_counter = 1
              user = User.all[user_counter]
         else
@@ -43,12 +52,12 @@ end
     end
 
     Tontine.create(id: tontine_id,
-        name: "Tontine #{i}", 
+        name: "Tontine #{i}",
         user_id: members.sample.user_id,
-        contribution: rand(1..10)*100, 
+        contribution: rand(1..10)*100,
         start_month: start_month,
         payment_day: payment_day,
-        participants: 10, 
+        participants: 10,
         status: STATUS.sample
     )
 
@@ -65,7 +74,7 @@ end
     Tontine.create(
         id: Tontine.maximum(:id).to_i.next,
         name: "Tontine #{tontine_id}",
-        user_id: 1, 
+        user_id: 1,
         contribution: rand(1..10)*100,
         start_month: start_month,
         payment_day: payment_day,
@@ -74,7 +83,7 @@ end
     )
 
     (1..10).each do |j|
-        Member.create(id: Member.maximum(:id).to_i.next, 
+        Member.create(id: Member.maximum(:id).to_i.next,
         user_id: i == 0 ? 1 : User.all.sample.id, tontine_id: tontine_id, position: j, status: "active")
     end
 end
