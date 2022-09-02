@@ -13,23 +13,25 @@ SwapRequest.destroy_all
 
 FIRST_NAMES = ["Carlos", "Daniel", "Eduardo", "Fernando", "Gustavo", "Heitor", "Isabela", "João", "Lucas", "Miguel", "Pedro", "Rafael", "Sidney", "Thiago", "Vitor", "William", "Joana", "Maria", "Ana", "Beatriz", "Bianca"]
 LAST_NAMES = ["Hart", "Starr", "Cash", "Baker", "Garcia", "Nguyen", "Lee", "Adams", "Gonzalez", "Perez", "Williams", "Lewis", "Walker", "Hall", "Young", "King", "Scott", "Green", "Adams", "Baker", "Gonzalez", "Nguyen"]
+COMPANY_NAMES = ["Wright & Co. Law Offices", "Art Vandelay Import/Export Industries", "Hamlin Hamlin McGill"]
 STATUS = ["pending", "active", "done"]
 user_counter = 0
 member_index = 1
 
 (1..50).each do |i|
     start_month = Date.today-rand(1..365)
-payment_day = start_month+30
+    payment_day = start_month+30
     User.create(
         email: "email#{i}@tontineo.com", 
         password: "password#{i}", 
+        company: COMPANY_NAMES.sample,
         first_name: FIRST_NAMES.sample, 
         last_name: LAST_NAMES.sample)
 end
 
 (1..10).each do |i|
     start_month = Date.today-rand(1..365)
-payment_day = start_month+30
+    payment_day = start_month+30
     tontine_id = Tontine.maximum(:id).to_i.next
     members = []
 
@@ -64,7 +66,7 @@ end
 
 (0..2).each do |i|
     start_month = Date.today-rand(1..365)
-payment_day = start_month+30
+    payment_day = start_month+30
     tontine_id = Tontine.maximum(:id).to_i.next
     Tontine.create(
         id: Tontine.maximum(:id).to_i.next,

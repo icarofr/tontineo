@@ -14,7 +14,7 @@ class TontinesController < ApplicationController
 
   def add_members
     @tontine = Tontine.find(params[:id])
-    @users = User.all
+    @users = User.where(company: current_user.company)
   end
 
   def add_members_patch
