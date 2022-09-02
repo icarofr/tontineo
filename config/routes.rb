@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     member do
       get :list_users_from_company
       get :add_users_to_tontine
+      get :accepte_member
+      get :decline_member
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

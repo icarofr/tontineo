@@ -55,10 +55,23 @@ class TontinesController < ApplicationController
         position: index + 1,
         status: "pending"
       )
+      member.status = "accepted" if user.id == current_user.id
       member.save!
     end
 
     redirect_to tontine_path(@tontine)
+  end
+
+  def accepte_member
+    @tontine = Tontine.find(params[:id])
+    current_user.members.where(tontine: @tontine).first.update(status: "accepted")
+    redirect_to tontine_path(@tontine)
+  end
+
+  def decline_member
+    @tontine = Tontine.find(params[:id])
+    current_user.members.where(tontine: @tontine).first.update(status: "declined")
+    redirect_to dashboard_path
   end
 
   private
