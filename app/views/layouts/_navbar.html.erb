@@ -1,13 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid navbar">
-    <a class="navbar-brand mx-auto" href="/">
-      <h3 class="name_logo d-flex align-items-center justify-content-center">
-        <img src="/apple-icon.png" />
-        <p class="mb-0">Tontineo</p>
-      </h3>
-    </a>
+    <%= link_to root_path, class: 'home-link' do %>
+      <div class="logo-wrapper d-flex align-items-center">
+        <%= image_tag "apple-icon.png", class: 'logo' %>
+        <p class="logo-title mt-0 mb-0">Tontineo</p>
+      </div>
+    <% end %>
+    <%= link_to "Créer une tontine", new_tontine_path, class:"btn btn-primary" %>
 
-    <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%# <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home</a>
@@ -23,9 +24,9 @@
               <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
             </div>
           </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
-      </ul>
+          <li class="nav-item"
+          <%# <!--/li %>
+      <%# </ul> %>
     </div>
   </div>
 </div>
