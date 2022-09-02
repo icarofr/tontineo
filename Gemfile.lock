@@ -112,9 +112,7 @@ GEM
     erubi (1.11.0)
     execjs (2.8.1)
     ffi (1.15.5)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
-    font-awesome-sass (6.1.2)
+    font-awesome-sass (6.2.0)
       sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -155,8 +153,6 @@ GEM
       timeout
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.3)
@@ -255,7 +251,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -264,7 +259,6 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  font-awesome-rails
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
