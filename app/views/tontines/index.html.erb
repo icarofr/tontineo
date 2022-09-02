@@ -1,2 +1,18 @@
-<h1>Tontineo</h1>
-<h3>Créer votre tontine et inviter vos collègues !</h3>
+<%# <h1 class="text-center">My tontines</h1> %>
+<% @tontines.each do |tontine| %>
+<% is_owner = tontine.user.id == current_user.id %>
+<div class="card">
+  <div class="card-header">
+    <%= tontine.name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= %></h5>
+    <p class="card-text">À payer le <%= tontine.start_month %></p>
+    <% if is_owner %>
+       <a href="/tontines/<%= tontine.id %>/edit" class="btn btn-primary">Inviter des members</a>
+    <% else %>
+       <a href="/tontines/<%= tontine.id %>/edit" class="btn btn-success">Changer de position</a>
+    <% end %>
+  </div>
+</div>
+<% end %>

@@ -16,10 +16,10 @@ LAST_NAMES = ["Hart", "Starr", "Cash", "Baker", "Garcia", "Nguyen", "Lee", "Adam
 STATUS = ["pending", "active", "done"]
 user_counter = 0
 member_index = 1
-start_month = Date.today-rand(1..365)
-payment_day = start_month+30
 
 (1..50).each do |i|
+    start_month = Date.today-rand(1..365)
+payment_day = start_month+30
     User.create(
         email: "email#{i}@tontineo.com", 
         password: "password#{i}", 
@@ -28,6 +28,8 @@ payment_day = start_month+30
 end
 
 (1..10).each do |i|
+    start_month = Date.today-rand(1..365)
+payment_day = start_month+30
     tontine_id = Tontine.maximum(:id).to_i.next
     members = []
 
@@ -61,12 +63,14 @@ end
 end
 
 (0..2).each do |i|
+    start_month = Date.today-rand(1..365)
+payment_day = start_month+30
     tontine_id = Tontine.maximum(:id).to_i.next
     Tontine.create(
         id: Tontine.maximum(:id).to_i.next,
         name: "Tontine #{tontine_id}",
         user_id: 1, 
-        contribution: rand(1..10)*100,
+        contribution: rand(1..5)*100,
         start_month: start_month,
         payment_day: payment_day,
         participants: 10,
@@ -75,6 +79,6 @@ end
 
     (1..10).each do |j|
         Member.create(id: Member.maximum(:id).to_i.next, 
-        user_id: i == 0 ? 1 : User.all.sample.id, tontine_id: tontine_id, position: j, status: "active")
+        user_id: i == 0 && j == 1 ? 1 : User.all.sample.id, tontine_id: tontine_id, position: j, status: "active")
     end
 end
