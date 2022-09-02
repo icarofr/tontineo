@@ -15,7 +15,6 @@ class TontinesController < ApplicationController
 
   def create
     @tontine = Tontine.new(params_tontine)
-    @tontine.id = Tontine.maximum(:id).next.to_i
     @tontine.user = current_user
     @tontine.status = "pending"
 

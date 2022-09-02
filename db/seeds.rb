@@ -19,15 +19,8 @@ member_index = 1
 start_month = Date.today-rand(1..365)
 payment_day = start_month+30
 
-(1..50).each do |i|
-    User.create(
-        email: "email#{i}@tontineo.com",
-        password: "password#{i}",
-        first_name: FIRST_NAMES.sample,
-        last_name: LAST_NAMES.sample)
-end
 
-(60..68).each do |i|
+(1..10).each do |i|
     User.create(
         email: "email#{i}@tontineo.com",
         password: "password#{i}",
