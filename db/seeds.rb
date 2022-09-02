@@ -36,54 +36,54 @@ end
         company: "Le Wagon")
 end
 
-(1..10).each do |i|
-    tontine_id = Tontine.maximum(:id).to_i.next
-    members = []
+# (1..10).each do |i|
+#     tontine_id = Tontine.maximum(:id).to_i.next
+#     members = []
 
-    (1..10).each do |j|
-        user = User.all[user_counter]
-        if user.nil?
-             user_counter = 1
-             user = User.all[user_counter]
-        else
-            user_counter += 1
-        end
-        members.push(Member.new(user_id: user.id, tontine_id: tontine_id, position: j, status: "active"))
-    end
+#     (1..10).each do |j|
+#         user = User.all[user_counter]
+#         if user.nil?
+#              user_counter = 1
+#              user = User.all[user_counter]
+#         else
+#             user_counter += 1
+#         end
+#         members.push(Member.new(user_id: user.id, tontine_id: tontine_id, position: j, status: "active"))
+#     end
 
-    Tontine.create(id: tontine_id,
-        name: "Tontine #{i}",
-        user_id: members.sample.user_id,
-        contribution: rand(1..10)*100,
-        start_month: start_month,
-        payment_day: payment_day,
-        participants: 10,
-        status: STATUS.sample
-    )
+#     Tontine.create(id: tontine_id,
+#         name: "Tontine #{i}",
+#         user_id: members.sample.user_id,
+#         contribution: rand(1..10)*100,
+#         start_month: start_month,
+#         payment_day: payment_day,
+#         participants: 10,
+#         status: STATUS.sample
+#     )
 
-    members.each do |member|
-        member.id = member_index
-        member.tontine_id = tontine_id
-        member_index += 1
-        member.save
-    end
-end
+#     members.each do |member|
+#         member.id = member_index
+#         member.tontine_id = tontine_id
+#         member_index += 1
+#         member.save
+#     end
+# end
 
-(0..2).each do |i|
-    tontine_id = Tontine.maximum(:id).to_i.next
-    Tontine.create(
-        id: Tontine.maximum(:id).to_i.next,
-        name: "Tontine #{tontine_id}",
-        user_id: 1,
-        contribution: rand(1..10)*100,
-        start_month: start_month,
-        payment_day: payment_day,
-        participants: 10,
-        status: STATUS[i],
-    )
+# (0..2).each do |i|
+#     tontine_id = Tontine.maximum(:id).to_i.next
+#     Tontine.create(
+#         id: Tontine.maximum(:id).to_i.next,
+#         name: "Tontine #{tontine_id}",
+#         user_id: 1,
+#         contribution: rand(1..10)*100,
+#         start_month: start_month,
+#         payment_day: payment_day,
+#         participants: 10,
+#         status: STATUS[i],
+#     )
 
-    (1..10).each do |j|
-        Member.create(id: Member.maximum(:id).to_i.next,
-        user_id: i == 0 ? 1 : User.all.sample.id, tontine_id: tontine_id, position: j, status: "active")
-    end
-end
+#     (1..10).each do |j|
+#         Member.create(id: Member.maximum(:id).to_i.next,
+#         user_id: i == 0 ? 1 : User.all.sample.id, tontine_id: tontine_id, position: j, status: "active")
+#     end
+# end
