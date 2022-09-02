@@ -1,5 +1,7 @@
-<% @users_to_add.each do |user| %>
-   <p><%= user.first_name %></p>
-<% end  %>
+<div class="container">
+  <% @users_to_add.each do |user| %>
+    <p><%= user.first_name %></p>
+  <% end  %>
+</div>
 
 <%= link_to "Ajouter ces utilisateurs", add_users_to_tontine_tontine_path(@tontine) %>
