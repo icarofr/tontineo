@@ -7,6 +7,7 @@ class TontinesController < ApplicationController
 
   def show
     @is_owner = @tontine.user.id == current_user.id
+    @message = Message.new
   end
 
   def new

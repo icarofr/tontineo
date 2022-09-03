@@ -1,6 +1,36 @@
-<img src="" alt="logo" class="d-inline">
-<p class="logo_title d-inline">Tontineo</p>
-
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Open chatroom
+  </button>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <div class="container chatroom">
+      <h1>#<%= @tontine.name %></h1>
+      <div class="messages">
+        <% @tontine.messages.each do |message| %>
+          <div id="message-<%= message.id %>">
+            <small>
+              <strong><%= message.user.email %></strong>
+              <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+            </small>
+            <p><%= message.body %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="card card-body">
+        <%= simple_form_for [@tontine, @message],
+          html: {class: "d-flex"} do |f|
+        %>
+          <%= f.input :body,
+            label: false,
+            placeholder: "Message ##{@tontine.name}",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% if @is_owner  %>
   <%= render "tontines/show_admin" %>

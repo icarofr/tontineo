@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :accepte_member
       get :decline_member
     end
+   resources :messages, only: :create
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
