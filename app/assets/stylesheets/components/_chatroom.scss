@@ -1,5 +1,5 @@
 .tontine {
-  background: red;
+  background: $background;
   margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
@@ -17,6 +17,7 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    background-color: $green;
   }
 
   #new_message {

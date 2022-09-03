@@ -3,7 +3,7 @@
   </button>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    <div class="container tontine"
+    <div class="container tontine pb-2"
       data-controller="tontine-subscription"
       data-tontine-subscription-tontine-id-value="<%= @tontine.id %>"
     >
@@ -15,14 +15,16 @@
       </div>
       <div class="card card-body">
         <%= simple_form_for [@tontine, @message],
-          html: {class: "d-flex"} do |f|
+           html: {data: {action: 
+           "turbo:submit-end->tontine-subscription#resetForm"}, 
+            class: "d-flex"} do |f|
         %>
           <%= f.input :body,
             label: false,
-            placeholder: "Message ##{@tontine.name}",
+            placeholder: "Ecrivez votre message au membre",
             wrapper_html: {class: "flex-grow-1"}
           %>
-          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <%= f.submit "Envoyez", class: "btn btn-primary mb-3" %>
         <% end %>
       </div>
     </div>
