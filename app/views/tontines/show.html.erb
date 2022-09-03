@@ -3,17 +3,14 @@
   </button>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    <div class="container chatroom">
+    <div class="container tontine"
+      data-controller="tontine-subscription"
+      data-tontine-subscription-tontine-id-value="<%= @tontine.id %>"
+    >
       <h1>#<%= @tontine.name %></h1>
-      <div class="messages">
+      <div class="messages" data-tontine-subscription-target="messages">
         <% @tontine.messages.each do |message| %>
-          <div id="message-<%= message.id %>">
-            <small>
-              <strong><%= message.user.email %></strong>
-              <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-            </small>
-            <p><%= message.body %></p>
-          </div>
+          <%= render "messages/message", message: message %>
         <% end %>
       </div>
       <div class="card card-body">

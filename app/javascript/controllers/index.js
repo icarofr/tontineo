@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import TontineSubscriptionController from "./tontine_subscription_controller"
+application.register("tontine-subscription", TontineSubscriptionController)
