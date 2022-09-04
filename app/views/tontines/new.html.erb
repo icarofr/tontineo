@@ -1,18 +1,23 @@
-<link rel="stylesheet" type="text/css" href="_form.css">
+<div class="card-trip m-5" >
+  <link rel="stylesheet" type="text/css" href="_form.css">
+  <h2 class="text-center m-3">Créer votre tontine</h2>
+  <div class ="form_style" data-controller="flatpickr" >
+    <%= simple_form_for @tontine, html: { data: { turbo: false }} do |f| %>
+      <%= f.input :name,label: 'Name', placeholder: 'Donner un nom à votre tontine' %>
+      <%= f.input :contribution,label: 'Contribution ', placeholder: 'Montant à verser' %>
+      <%= f.input :start_month, as: :string, input_html:{
+        data: { flatpickr_target: 'startMonthInput', }
+      } ,label: 'Start_month',  placeholder: 'Début de la tontine !' %>
 
-<div class ="form_style">
-  <%= simple_form_for @tontine, html: { data: { turbo: false } } do |f| %>
-    <%= f.input :name,label: 'Name', placeholder: 'Donner un nom à votre tontine' %>
-    <%= f.input :contribution,label: 'Contribution ', placeholder: 'Montant à verser' %>
-    <%= f.input :start_month,label: 'Start_month',  placeholder: 'Début de la tontine !' %>
-    <%= f.input :payment_day, label: 'Payment_day', placeholder: 'Jour du paiement' %>
-    <%= f.input :participants,label: 'Participants', placeholder: "Nombre de participants !" %>
-    <%# <%= f.input :users,label: 'Utilisateurs', placeholder: "Mail du participant !" %>
-    <%# <%= f.input :image, label: 'Ta photo', placeholder: 'Envoie une photo' %>
-    <%# <div class="mb-3 string optional basket_photo"> %>
-    <%# <label class="form-label string optional" for="basket_price_per_day">Ta photo</label>
-    <input class="form-control string optional" placeholder="Envoie une photo" type="text" name="image"></div> %>
-    <%= f.submit class:"button_style"%>
-    <%# <i class="fa-solid fa-basketball"></i> %>
-  <% end %>
+      <%= f.input :payment_day, label: 'Payment_day', placeholder: 'Jour du paiement' %>
+      <%= f.input :participants,label: 'Participants', placeholder: "Nombre de participants !"%>
+      <%# <%= f.input :users,label: 'Utilisateurs', placeholder: "Mail du participant !" %>
+      <%# <%= f.input :image, label: 'Ta photo', placeholder: 'Envoie une photo' %>
+      <%# <div class="mb-3 string optional basket_photo"> %>
+      <%# <label class="form-label string optional" for="basket_price_per_day">Ta photo</label>
+      <input class="form-control string optional" placeholder="Envoie une photo" type="text" name="image"></div> %>
+      <%= f.submit "Valider", class:"btn btn-primary d-grid gap-2 col-6 mx-auto m-4"%>
+      <%# <i class="fa-solid fa-basketball"></i> %>
+    <% end %>
+  </div>
 </div>
