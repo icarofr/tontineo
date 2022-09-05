@@ -8,6 +8,6 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id])
+    params[:id] == "me" ? @user = current_user : @user = User.find(params[:id])
   end
 end
