@@ -1,6 +1,19 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  .home-link {
+    color: black;
+    text-decoration: none;
+  }
+  .logo-wrapper {
+    height: 50px;
+  }
+  .logo {
+    height: 100%;
+  }
+  .logo-title {
+
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -134,13 +147,13 @@ body {
   font-weight: 500;
 }
 
-.logo {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  font-size: 1.2rem;
-  color: #0e2431;
-}
+// .logo {
+//   position: absolute;
+//   top: 5px;
+//   right: 15px;
+//   font-size: 1.2rem;
+//   color: #0e2431;
+// }
 
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
   transform: translateX(0);
