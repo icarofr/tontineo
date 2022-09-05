@@ -12,6 +12,7 @@
     <%# <div class="mb-3 string optional basket_photo"> %>
     <%# <label class="form-label string optional" for="basket_price_per_day">Ta photo</label>
     <input class="form-control string optional" placeholder="Envoie une photo" type="text" name="image"></div> %>
+    <%= cl_image_tag("", width: 400, height: 300, crop: :fill crop: :scale) %>
     <%= f.submit class:"button_style"%>
     <%# <i class="fa-solid fa-basketball"></i> %>
   <% end %>
