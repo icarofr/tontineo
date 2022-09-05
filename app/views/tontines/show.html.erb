@@ -10,6 +10,7 @@
 
   <div class="tontine_description">
     <%= @tontine.name %></p>
+    <%= cl_image_tag @tontine.cover.key, height: 300, width: 400, crop: :fill , class:"tontine_cover" %>
     <p> Montant Total :  <%= @tontine.contribution %> € </p>
     <p> Début de la tontine : <%= @tontine.start_month.strftime("%d/%m/%Y") %>
     <p> Date de réception : <%= @tontine.payment_day.strftime("%d/%m/%Y") %></p>
