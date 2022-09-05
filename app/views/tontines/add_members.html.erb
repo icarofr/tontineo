@@ -5,20 +5,9 @@
   <% (1...@tontine.participants).map do |i| %>
    <select name="member<%=i%>">
    <% @users.each do |user| %>
-    <option value="<%= user.id %>"><%= user.first_name + " " + user.last_name %></option>
+    <option value="<%= user.id %>"><%= "#{user.first_name} #{user.last_name}" %></option>
     <% end %>
   </select>
   <% end %>
   <input type="submit" value="Add Members">
 </div>
-
-<link rel="stylesheet" type="text/css" href="_form.css">
-
-<%# <div class ="form_style"> %>
-   <%# <%= simple_form_for @tontine, action: "/test", method: "patch", html: { data: { turbo: false } } do |f| %> %>
-     <%# <% (1...@tontine.participants).map do |i| %> %>
-       <%# <%= f.input :user_id, label: "Member #{i}", collection: User.all.map { |user| ["#{user.first_name} #{user.last_name}", user.id] } %> %>
-     <%# <% end %> %>
-     <%# <button type="submit"/> %>
-   <%# <% end %> %>
- <%# </div> %>
