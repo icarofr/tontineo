@@ -1,7 +1,7 @@
 <div class="card-trip m-5" >
   <link rel="stylesheet" type="text/css" href="_form.css">
   <h2 class="text-center m-3">Créer votre tontine</h2>
-  <div class ="form_style" data-controller="flatpickr" >
+  <div class ="form_style" data-controller="flatpickr">
     <%= simple_form_for @tontine, html: { data: { turbo: false }} do |f| %>
       <%= f.input :name,label: 'Name', placeholder: 'Donner un nom à votre tontine' %>
       <%= f.input :contribution,label: 'Contribution ', placeholder: 'Montant à verser' %>
