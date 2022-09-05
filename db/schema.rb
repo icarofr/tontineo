@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_154847) do
     t.bigint "tontine_id", null: false
     t.bigint "user_id", null: false
     t.integer "position"
-    t.string "status"
+    t.string "status" 
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tontine_id"], name: "index_members_on_tontine_id"

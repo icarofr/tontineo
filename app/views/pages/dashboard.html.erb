@@ -1,5 +1,21 @@
 <div container>
 	<h3 class="text-center"><i class="fa-solid fa-chart-line"></i> Dashboard</h3>
+  <div class="invitations_card">
+    <% @members.each do |member| %>
+      <p> Vous etes invité à la tontine <%= member.tontine.name %> </p>
+      <% button_tag "Accept"  , to: dashboard_path  %>
+      <% member.status == "accepted" %>
+      
+      <%= button_tag "Decline", to: dashboard_path  %>
+      <% member.status == "decline" %>
+      <%   %>
+
+
+    <% end %>
+  </div>
+
+<%# <%= f.submit "Watch" , :style => 'padding-top: 14px', :class => 'class_name' %>
+
 	<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 	  <div class="container-fluid">
 	  	<%= link_to "En attente", dashboard_path(status: "pending"), class:"btn btn-warning"%>
@@ -22,5 +38,5 @@
 		  <% end %>
 		   </div>
 	  	<% end %>
-	    
+
 </div>
