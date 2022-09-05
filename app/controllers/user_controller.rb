@@ -5,34 +5,32 @@ class UserController < ApplicationController
   #     @users = User.all
   #   end
 
-  #   def show
-  #     @user = User.find(params[:id])
+    def show
+      @user = User.find(params[:id])
 
   #     redirect_to users_path if @user.nil?
   #   end
 
-  #   def new
-  #     @user = User.new
+    def new
+      @user = User.new
+      redirect_to users_path if @user.nil?
 
-  #     redirect_to users_path if @user.nil?
+      if current_user.nil?
+        redirect_to users_path
 
-  #     if current_user.nil?
-  #       redirect_to users_path
+      elsif current_user.admin?
+        @user = User.new
+      end
+    end
 
-  #     elsif current_user.admin?
-
-  #       @user = User.new
-  #     end
-  #   end
-
-  #   def create
-  #     @user = User.new(user_params)
-  #     if @user.save
-  #       redirect_to users_path
-  #     else
-  #       render 'new'
-  #     end
-  #   end
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        redirect_to users_path
+      else
+        render 'new'
+      end
+    end
 
   #   def edit
   #     @user = User.find(params[:id])
@@ -57,4 +55,9 @@ class UserController < ApplicationController
   #   def initialize_user
   #     @user = User.new
   #   end
+    private
+
+  def params_user
+    params.require(:user).permit(:first_name, :last_name :company, :password, :email, :photo)
+  end
 end
