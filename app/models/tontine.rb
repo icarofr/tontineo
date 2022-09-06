@@ -1,15 +1,11 @@
 class Tontine < ApplicationRecord
   belongs_to :user
-<<<<<<< HEAD
-  has_many :members
   has_many :messages
-=======
   has_many :members, -> { order(position: :asc) }, dependent: :destroy
   has_many :users, -> { order("members.position ASC") }, through: :members
 
   has_one_attached :cover
   
->>>>>>> main
   STATUS = %w[pending  active done]
   validates :status, inclusion: { in: Tontine::STATUS }
 
