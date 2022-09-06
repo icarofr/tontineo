@@ -1,6 +1,8 @@
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Open chatroom
-  </button>
+<% content_for :chatroom_link do %>
+  <div class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fa-regular fa-comments"></i>
+  </div>
+<% end -%>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
     <div class="container tontine pb-2"

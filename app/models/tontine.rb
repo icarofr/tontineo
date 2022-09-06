@@ -5,7 +5,7 @@ class Tontine < ApplicationRecord
   has_many :users, -> { order("members.position ASC") }, through: :members
 
   has_one_attached :cover
-  
+    
   STATUS = %w[pending  active done]
   validates :status, inclusion: { in: Tontine::STATUS }
 

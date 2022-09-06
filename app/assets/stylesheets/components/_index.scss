@@ -9,15 +9,11 @@
 @import "navbar";
 @import "footer";
 @import "pages";
-<<<<<<< HEAD
 @import "chatroom";
-
-=======
 @import "form";
 @import "tontine_card";
 @import "headers";
-  
->>>>>>> main
+
 .content-wrapper {
   min-height: calc(100vh - 74px - 100px);
 }
