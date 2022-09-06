@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="_form.css">
-
-<div class="card-trip m-5" >
+<div class="my-5 mx-3" >
   <link rel="stylesheet" type="text/css" href="_form.css">
   <h2 class="text-center m-3">Nouvelle tontine</h2>
   <div class ="form_style" data-controller="flatpickr">
@@ -11,13 +10,17 @@
       <%= f.input :payment_day, as: :string, label: 'Payment_day', placeholder: 'Jour du paiement' ,input_html:{
         data: { flatpickr_target: 'paymentDayInput', }
       } %>
-      <%= f.input :participants,label: 'Participants', placeholder: "Nombre de participants !"%>
+      <%= f.association :members,
+                        as: :check_boxes,
+                        collection: User.all.where.not(id: current_user.id),
+                        label_method: lambda { |member| render 'tontines/form_avatar', member: member } %>
+      <%#= f.input :participants,label: 'Participants', placeholder: "Nombre de participants !"%>
       <%# <%= f.input :users,label: 'Utilisateurs', placeholder: "Mail du participant !" %>
       <%# <%= f.input :image, label: 'Ta photo', placeholder: 'Envoie une photo' %>
       <%# <div class="mb-3 string optional basket_photo"> %>
       <%# <label class="form-label string optional" for="basket_price_per_day">Ta photo</label>
       <input class="form-control string optional" placeholder="Envoie une photo" type="text" name="image"></div> %>
-      <%= f.submit "Valider", class:"btn btn-primary d-grid gap-2 col-6 mx-auto m-4"%>
+      <%= f.submit "Valider", class:"btn-rounded btn purple-btn py-3 w-100 text-white"%>
       <%# <i class="fa-solid fa-basketball"></i> %>
     <% end %>
   </div>
