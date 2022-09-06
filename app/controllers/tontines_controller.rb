@@ -80,6 +80,6 @@ class TontinesController < ApplicationController
   end
 
   def params_tontine
-    params.require(:tontine).permit(:name, :contribution, :start_month, :payment_day, :participants)
+    params.require(:tontine).permit(:name, :contribution, :start_month, :payment_day, :participants, :cover)
   end
 end

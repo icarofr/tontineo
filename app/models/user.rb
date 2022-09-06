@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :tontines
   has_many :members
+  has_one_attached :photo
 end
