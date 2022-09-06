@@ -1,27 +1,76 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);">
-  <div class="container">
-    <h1> <strong>Financer vos projets entre</strong> <strong> collègues avec la tontine</strong></h1>
-    <p>BASELINE</p>
-   <%# <div class="input-group d-flex justify-content-center" style="width: 80%"> %>
-    
-  </div>
-</div>
-<div class="container text-center">
-  <h3 class="m-4">Comment ça marche</h3>
-  <div class="row align-items-start">
-    <div class="col-12">
-      <img src="team.png" class="img-thumbnail">
-      <h3 class="m-5">Rassembler plusieurs collègues pour créer une <strong>tontine</strong></h3>
-    </div>
-    <div class="col-12">
-       <img src="payment.png" class="img-thumbnail">
-        <h3 class="m-5">Choisissez une épargne mensuelle à partager entre vous</h3>
-    </div>
-    <div class="col-12">
-      <img src="gift.png" class="img-thumbnail">
-       <h3 class="m-5"> A tour de rôle la personne désignée chaque mois reçoit la somme de la tontine</h3>
-    </div>
-  </div>
+<div class="container py-5" style="height: 20vh;">
+   <% if user_signed_in? %>
+     <%= link_to dashboard_path, class: 'home-link' do %>
+       <div class="logo-wrapper d-flex justify-content-center">
+        <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+        <p class="home-title">Tontineo</p>
+      <% end %>
+    <% else %>
+        <div class="logo-wrapper d-flex justify-content-center">
+          <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+        <p class="home-title">Tontineo</p>
+    <% end %>
 </div>
 
+<div class="container d-flex justify-content-center flex-column" style="height: 60vh;">
+  <h4 class="text-center pb-5"> Financer vos projets à plusieurs, <br/>entre collègues</h4>
+  <%= image_tag "img/img_home.png", class: '', style: 'border-radius: 0%;' %>
+</div>
+<div class="container sticky bottom-0 pb-5 px-4 d-flex flex-column" style="height: 20vh;">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn-rounded btn btn-outline-primary py-3 mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Comment ça marche ?
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!--<h5 class="modal-title" id="staticBackdropLabel">Comment ça marche ?</h5>-->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- start carousel>-->
+           <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h3 class="text-center title">Etape 1</h3>
+                <h3 class="text-center">Rassembler plusieurs collègues pour 
+                créer une tontine</h3>
+                  <%= image_tag "img/group.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
+              </div>
+              <div class="carousel-item">
+                 <h3 class="text-center title">Etape 2</h3>
+                <h3 class="text-center">Choisissez une épargne mensulelle
+                à partager entre vous</h3>
+                  <%= image_tag "img/epargne.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
+              </div>
+              <div class="carousel-item">
+                 <h3 class="text-center title">Etape 3</h3>
+                <h3 class="text-center">A tour de rôle la personne<br/>
+                désignée chaque mois reçoit la somme de la tontine</h3>
+                  <%= image_tag "img/coins.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!--end carousel -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to "Créer un compte", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>
+  <%= link_to "Se connecter", new_user_session_path, class:"text-center"%>
+</div>  
 

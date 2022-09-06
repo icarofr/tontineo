@@ -7,76 +7,113 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Member.destroy_all
+Message.destroy_all
 Tontine.destroy_all
 User.destroy_all
 SwapRequest.destroy_all
 
-FIRST_NAMES = ["Carlos", "Daniel", "Eduardo", "Fernando", "Gustavo", "Heitor", "Isabela", "João", "Lucas", "Miguel", "Pedro", "Rafael", "Sidney", "Thiago", "Vitor", "William", "Joana", "Maria", "Ana", "Beatriz", "Bianca"]
-LAST_NAMES = ["Hart", "Starr", "Cash", "Baker", "Garcia", "Nguyen", "Lee", "Adams", "Gonzalez", "Perez", "Williams", "Lewis", "Walker", "Hall", "Young", "King", "Scott", "Green", "Adams", "Baker", "Gonzalez", "Nguyen"]
-STATUS = ["pending", "active", "done"]
-user_counter = 0
-member_index = 1
-start_month = Date.today-rand(1..365)
-payment_day = start_month+30
+users = []
 
+gorgui = User.create!(first_name: "Gorgui", last_name: "Ronaldinho", company: "Le Wagon", email: "gorgui@lewagon.com", password: "gorgui123")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
+gorgui.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+puts "create user 1"
+users << gorgui
 
-(1..10).each do |i|
-    User.create(
-        email: "email#{i}@tontineo.com",
-        password: "password#{i}",
-        first_name: FIRST_NAMES.sample,
-        last_name: LAST_NAMES.sample,
-        company: "Le Wagon")
+samy = User.create!(first_name: "samy", last_name: "Mohkrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
+samy.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+puts "create user 2"
+users << samy
+
+jean = User.create!(first_name: "jean-rodriguez", last_name: "kinouani", company: "Le Wagon", email: "jrkinouani@lewagon.com", password: "kinouani")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/jrkinouani")
+jean.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+puts "create user 3"
+users << jean
+
+lionel = User.create!(first_name: "Lionel", last_name: "messi", company: "Le Wagon", email: "messi@lewagon.com", password: "messi123")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/krokrob")
+lionel.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+puts "create user 4"
+users << lionel
+
+diego = User.create!(first_name: "maradona", last_name: "diego", company: "Le Wagon", email: "maradona@lewagon.com", password: "maradona")
+file = URI.open("https://randomuser.me/api/portraits/men/86.jpg")
+diego.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+puts "create user 5"
+users << diego
+
+start_month = Date.today.beginning_of_month - 3.month
+payment_day = start_month + 30
+
+tontine = Tontine.create!(name: "Voyage", contribution: 300, start_month: start_month, payment_day: payment_day, participants: 5, status: "active", user: jean)
+users.each do |user|
+  Member.create(tontine: tontine, user: user, position: tontine.members.count + 1, status: 'confirmed')
 end
 
+puts "tontines"
+
+# FIRST_NAMES = ["Carlos", "Daniel", "Eduardo", "Fernando", "Gustavo", "Heitor", "Isabela", "João", "Lucas", "Miguel",
+#                "Pedro", "Rafael", "Sidney", "Thiago", "Vitor", "William", "Joana", "Maria", "Ana", "Beatriz", "Bianca",
+#                "Camila", "Carolina", "Catarina", "Clara", "Eduarda", "Gabriela", "Isabel", "Isadora", "Júlia", "Lara"]
+# LAST_NAMES = ["Hart", "Starr", "Cash", "Baker", "Garcia", "Nguyen", "Lee", "Adams", "Gonzalez", "Perez", "Williams",
+#               "Lewis", "Walker", "Hall", "Young", "King", "Scott", "Green", "Adams", "Baker", "Gonzalez", "Nguyen",
+#               "Perez", "Williams", "Lewis", "Walker", "Hall", "Young", "King", "Scott", "Green", "Adams", "Baker"]
+# TONTINE_STATUS = ["pending", "active", "done"]
+# MEMBER_STATUS = ["pending", "accepted", "declined"]
+# COMPANY_NAMES = ["Wright & Co. Law Offices", "Art Vandelay Import/Export Industries", "Hamlin Hamlin McGill"]
+
+# user_counter = 1
+
 # (1..10).each do |i|
-#     tontine_id = Tontine.maximum(:id).to_i.next
-#     members = []
+#   start_month = Date.today - rand(1..365)
+#   payment_day = start_month + 30
+#   user = User.create(
+#     email: "email#{i}@tontineo.com",
+#     password: "password#{i}",
+#     company: COMPANY_NAMES.sample,
+#     first_name: FIRST_NAMES.sample,
+#     last_name: LAST_NAMES.sample
+#   )
 
-#     (1..10).each do |j|
-#         user = User.all[user_counter]
-#         if user.nil?
-#              user_counter = 1
-#              user = User.all[user_counter]
-#         else
-#             user_counter += 1
-#         end
-#         members.push(Member.new(user_id: user.id, tontine_id: tontine_id, position: j, status: "active"))
-#     end
+#   tontine = Tontine.create(
+#     name: "Tontine #{i}",
+#     user:,
+#     contribution: rand(1..5) * 100,
+#     start_month:,
+#     payment_day:,
+#     participants: 5,
+#     status: i == 1 ? "done" : TONTINE_STATUS.sample
+#   )
 
-#     Tontine.create(id: tontine_id,
-#         name: "Tontine #{i}",
-#         user_id: members.sample.user_id,
-#         contribution: rand(1..10)*100,
-#         start_month: start_month,
-#         payment_day: payment_day,
-#         participants: 10,
-#         status: STATUS.sample
-#     )
+#   Member.create(
+#     tontine:,
+#     user:,
+#     position: 1,
+#     status: "accepted"
+#   )
 
-#     members.each do |member|
-#         member.id = member_index
-#         member.tontine_id = tontine_id
-#         member_index += 1
-#         member.save
-#     end
+#   user_counter = i + 1
 # end
 
-# (0..2).each do |i|
-#     tontine_id = Tontine.maximum(:id).to_i.next
-#     Tontine.create(
-#         id: Tontine.maximum(:id).to_i.next,
-#         name: "Tontine #{tontine_id}",
-#         user_id: 1,
-#         contribution: rand(1..10)*100,
-#         start_month: start_month,
-#         payment_day: payment_day,
-#         participants: 10,
-#         status: STATUS[i],
+# Tontine.all.each_with_index do |tontine, tontine_index|
+#   (2..tontine.participants).each do |i|
+#     user = User.create!(
+#       email: "email#{user_counter}@tontineo.com",
+#       password: "password#{user_counter}",
+#       company: COMPANY_NAMES.sample,
+#       first_name: FIRST_NAMES.sample,
+#       last_name: LAST_NAMES.sample
 #     )
 
-#     (1..10).each do |j|
-#         Member.create(id: Member.maximum(:id).to_i.next,
-#         user_id: i == 0 ? 1 : User.all.sample.id, tontine_id: tontine_id, position: j, status: "active")
-#     end
+#     Member.create(
+#       tontine:,
+#       user:,
+#       status: tontine_index.zero? ? "accepted" : MEMBER_STATUS.sample,
+#       position: i
+#     )
+
+#     user_counter += 1
+#   end
 # end

@@ -1,43 +1,25 @@
-<div container>
-	<h3 class="text-center"><i class="fa-solid fa-chart-line"></i> Dashboard</h3>
-  <% unless @pending_member.nil? %>
-    <% @pending_member.each do |member| %>
-    <div>
-      <div>
-        <%= member.tontine.name %>
-      </div>
-      <div>
-        <%= link_to "Accept", accepte_member_tontine_path(member.tontine) %>
-      </div>
-      <div>
-        <%= link_to "Decline", decline_member_tontine_path(member.tontine) %>
-      </div>
-    </div>
-    <% end %>
-  <% end %>
-
-
-	<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-	  <div class="container-fluid">
-	  	<%= link_to "En attente", dashboard_path(status: "pending"), class:"btn btn-warning"%>
-	  	<%= link_to "En cours", dashboard_path(status: "active"), class:"btn btn-primary"%>
-	  	<%= link_to "Terminée", dashboard_path(status: "done"), class:"btn btn-danger" %>
-      </div>
-      </div>
-	  	<% @tontines.each do |tontine|%>
-        <div class="card-trip">
-		  <% if tontine.status ==  params[:status]%>
-	  	  	  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-	  	  	  <div class="card-trip-infos">
-	    		  <div>
-		  	  	  	<h2>Nom de la tontine : <%= tontine.name %></h2>
-		  	  	  	<h2 class="btn btn-primary"><%= tontine.contribution  %> €/mois</h2>
-		  	  	  	<h2>Mois de départ : <%= tontine.start_month %></h2>
-		  	  	  	<h2>Jour de paiment : <%= tontine.participants %></h2>
-	    		  </div>
-    		  </div>
-		  <% end %>
-		   </div>
-	  	<% end %>
-
+<div class="container">
+	<div class="dashboard-header">
+		<%= cl_image_tag current_user.photo.key, class:"" %>
+		<div class="dashboard-header__infos">
+			<div class="dashboard-header__infos__name"><%= current_user.full_name %></div>
+			<div class="dashboard-header__infos__company"><%= current_user.company %></div>
+	    <%= link_to "Se deconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
+		</div>
+	</div>
+ 	<%= link_to "Créer une tontine", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>
+ 	<% if @pending_tontines.present? %>
+	 	<h4 class="underline">Tontine en attente</h4>
+		<% @pending_tontines.each do |tontine|%>
+			<%= render 'tontines/tontine_card', tontine: tontine %>
+		<% end %> 
+ 	<% end %>
+ 	<% if @active_tontines.present? %>
+		<h4 class="underline">Tontine en cours</h4>
+		<% @active_tontines.each do |tontine|%>
+			<%= render 'tontines/tontine_card', tontine: tontine %>
+		<% end %> 
+ 	<% end %>
+	<div class="d-grid gap-2 m-2">
+	</div>
 </div>

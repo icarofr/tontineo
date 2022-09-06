@@ -1,5 +1,5 @@
   .footer {
-  background: yellow;
+  background: #99A3FF;
   position: sticky;
   display: flex;
   bottom: 0;
@@ -40,4 +40,18 @@
 }
 .footer-links p {
   color: black;
+}
+
+.card-user {
+  align-items: center !important;
+  top: -40px;
+  width: 40px;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }

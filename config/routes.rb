@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard"
+  get "/users/:id", to: "pages#profile"
 
   resources :swap_request
   resources :tontines do

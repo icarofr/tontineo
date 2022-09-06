@@ -18,9 +18,17 @@ class TontinesController < ApplicationController
     @tontine = Tontine.new(params_tontine)
     @tontine.user = current_user
     @tontine.status = "pending"
+    params[:tontine][:member_ids].reject { |user_id| user_id == "" }.each do |user|
+      Member.create(
+        user: User.find(user.to_i),
+        tontine: @tontine,
+        position: @tontine.members.count + 2,
+        status: "pending"
+      )
+    end
 
     if @tontine.save!
-      redirect_to list_users_from_company_tontine_path(@tontine)
+      redirect_to tontine_path(@tontine)
     else
       render :new, status: :unprocessable_entity
     end
@@ -81,6 +89,6 @@ class TontinesController < ApplicationController
   end
 
   def params_tontine
-    params.require(:tontine).permit(:name, :contribution, :start_month, :payment_day, :participants)
+    params.require(:tontine).permit(:name, :contribution, :start_month, :payment_day, :participants, :cover)
   end
 end
