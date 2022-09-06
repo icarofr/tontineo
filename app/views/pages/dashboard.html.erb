@@ -8,25 +8,18 @@
 		</div>
 	</div>
  	<%= link_to "Créer une tontine", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>
-	<h4 class="underline">Tontine en cours</h4>
-	<% @active_tontines.each do |tontine|%>
-
-		<div class="tontine-card">
-			<div class="tontine-card__header">
-				<div class="tontine-card__header__name">
-					<%= tontine.name %>
-				</div>
-				<div class="tontine-card__header__contribution">
-					<%= tontine.contribution %>€<span>/mois</span>
-				</div>
-			</div>
-			<div class="tontine-card__avatars">
-				<% tontine.members.each do |member| %>
-					<%= cl_image_tag(member.user.photo.key, width: 200, class: "avatar-large #{'past-position' if member.position < tontine.current_position} #{'current-position' if member.position == tontine.current_position}") %>
-				<% end %>
-			</div>
-		</div>
-	<% end %> 
+ 	<% if @pending_tontines.present? %>
+	 	<h4 class="underline">Tontine en attente</h4>
+		<% @pending_tontines.each do |tontine|%>
+			<%= render 'tontines/tontine_card', tontine: tontine %>
+		<% end %> 
+ 	<% end %>
+ 	<% if @active_tontines.present? %>
+		<h4 class="underline">Tontine en cours</h4>
+		<% @active_tontines.each do |tontine|%>
+			<%= render 'tontines/tontine_card', tontine: tontine %>
+		<% end %> 
+ 	<% end %>
 	<div class="d-grid gap-2 m-2">
 	</div>
 </div>

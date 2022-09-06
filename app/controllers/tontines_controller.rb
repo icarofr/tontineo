@@ -21,7 +21,7 @@ class TontinesController < ApplicationController
       Member.create(
         user: User.find(user.to_i),
         tontine: @tontine,
-        position: @tontine.members.count + 1,
+        position: @tontine.members.count + 2,
         status: "pending"
       )
     end
