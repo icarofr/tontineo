@@ -7,12 +7,16 @@
       <%= f.input :name,label: 'Name', placeholder: "Comment s'appelle votre tontine ?" %>
       <%= f.input :contribution,label: 'Contribution ', placeholder: 'Montant à verser' %>
       <%= f.input :start_month, label: 'Start_month',  placeholder: 'Début de la tontine !' %>
+      <%= f.input :cover, as: :file %>
       <%= f.input :payment_day, as: :string, label: 'Payment_day', placeholder: 'Jour du paiement' ,input_html:{
         data: { flatpickr_target: 'paymentDayInput', }
       } %>
+      <h2>Sélectionner des participants :</h2>
       <%= f.association :members,
                         as: :check_boxes,
                         collection: User.all.where.not(id: current_user.id),
+                        wrapper_html: {class: 'd-flex'},
+                        input_html: {class: 'category-selector'},
                         label_method: lambda { |member| render 'tontines/form_avatar', member: member } %>
       <%#= f.input :participants,label: 'Participants', placeholder: "Nombre de participants !"%>
       <%# <%= f.input :users,label: 'Utilisateurs', placeholder: "Mail du participant !" %>
