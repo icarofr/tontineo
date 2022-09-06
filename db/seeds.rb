@@ -13,27 +13,27 @@ User.destroy_all
 SwapRequest.destroy_all
 
 user = User.create!(first_name: "Gorgui", last_name: "Ronaldinho", company: "Le Wagon", email: "gorgui@lewagon.com", password: "gorgui123")
-file =URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
 user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 1"
 
-user = User.create!(first_name: "samy", last_name: "Mohkrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
-file =URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
+user = User.create!(first_name: "Samy", last_name: "Mokrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
 user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 2"
 
 user = User.create!(first_name: "jean-rodriguez", last_name: "kinouani", company: "Le Wagon", email: "jrkinouani@lewagon.com", password: "kinouani")
-file =URI.open("https://kitt.lewagon.com/placeholder/users/jrkinouani")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/jrkinouani")
 user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 3"
 
-user = User.create!(first_name: "Lionel", last_name: "messi", company: "Le Wagon", email: "messi@lewagon.com", password: "messi123")
-file =URI.open("https://kitt.lewagon.com/placeholder/users/krokrob")
+user = User.create!(first_name: "Lionel", last_name: "Messi", company: "Le Wagon", email: "messi@lewagon.com", password: "messi123")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/krokrob")
 user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 4"
 
 user = User.create!(first_name: "maradona", last_name: "diego", company: "Le Wagon", email: "maradona@lewagon.com", password: "maradona")
-file =URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
 user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 5"
 

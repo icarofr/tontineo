@@ -1,5 +1,6 @@
 class TontinesController < ApplicationController
   before_action :set_tontine, only: %i[edit show destroy update]
+  # before_action :params_tontine, only %i[show]
 
   def index
     @tontines = Tontine.all
