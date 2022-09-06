@@ -5,8 +5,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @tontines = Tontine.where(user_id: current_user)
+    @tontines = current_user.tontines
     @pending_member = current_user.members.where(status: "pending")
+    @active_tontines = @tontines.where(status: "active")
   end
 
   def profile

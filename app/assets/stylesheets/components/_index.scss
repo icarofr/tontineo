@@ -4,11 +4,14 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "dashboard";
+@import "dashboard_header";
 @import "button";
 @import "navbar";
 @import "footer";
 @import "pages";
 @import "form";
+@import "tontine_card";
+@import "headers";
   
 .content-wrapper {
   min-height: calc(100vh - 74px - 100px);

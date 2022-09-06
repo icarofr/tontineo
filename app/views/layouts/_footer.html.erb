@@ -3,10 +3,10 @@
     <%= link_to dashboard_path do %>
      <i class="fa-solid fa-chart-line"></i><p>Dashboard</p>
     <% end %>
-      <% if user_signed_in?%>
-      <%= cl_image_tag current_user.photo.key, class:"card-user avatar-bordered d-flex justify-item-center"%>
-        <p><%= current_user.first_name %></p>
-      <% end %>
+    <% if user_signed_in? %>
+    <%= cl_image_tag current_user.photo.key, class:"card-user avatar-bordered d-flex justify-item-center"%>
+      <p><%= current_user.first_name %></p>   
+    <% end %> 
       <a href="#"><i class="fa-regular fa-envelope"></i><p>Notifications</p></a>
     <!--<a href="#"><i class="fa-regular fa-comments"></i><p>Messages</p></a>-->
   </div>
