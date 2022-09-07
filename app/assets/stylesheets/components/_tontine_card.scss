@@ -1,0 +1,51 @@
+.tontine-card {
+	background: white;
+	border-radius: 8px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+	padding: 1.5rem;
+}
+
+.tontine-card__header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.tontine-card__header__name {
+	flex: 1;
+	margin-right: 1rem;
+	font-size: 1.2em;
+}
+
+.tontine-card__header__contribution span {
+	font-size: 1rem;
+	font-weight: normal;
+}
+
+.tontine-card__avatars {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	.avatar-large {
+		margin-right: 0.2rem;
+	}
+	.past-position {
+		filter: grayscale(100%);
+	}
+	.current-position {
+		border: 2px solid black;
+		width: 80px;
+		position: relative;
+	}
+/*	.current-position:after {
+		content: '★';
+		position: absolute;
+		width: 1rem;
+		height: 1rem;
+		top: -5px;
+		right: 5px;
+		color: red;
+	}*/
+}

@@ -1,10 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid navbar">
-    <%= link_to root_path, class: 'home-link' do %>
-      <div class="logo-wrapper d-flex justify-content-center">
-        <%= image_tag "img/apple-icon.png", class: 'logo' %>
-      </div>
-        <p class="logo-title mt-0 mb-0">Tontineo</p>
+    <% if user_signed_in? %>
+     <%= link_to dashboard_path, class: 'home-link' do %>
+       <div class="logo-wrapper d-flex justify-content-center">
+        <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+        <!-- <p class="home-title">Tontineo</p> -->
+      <% end %>
+    <% else %>
+        <div class="logo-wrapper d-flex justify-content-center">
+          <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+        <p class="home-title">Tontineo</p>
     <% end %>
     <%#= link_to "Créer une tontine", new_tontine_path, class:"btn btn-primary" %>
 

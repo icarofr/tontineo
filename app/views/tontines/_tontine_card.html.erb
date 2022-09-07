@@ -1,0 +1,15 @@
+<div class="tontine-card">
+	<div class="tontine-card__header">
+		<div class="tontine-card__header__name">
+			<%= tontine.name %>
+		</div>
+		<div class="tontine-card__header__contribution">
+			<%= tontine.contribution %>€<span>/mois</span>
+		</div>
+	</div>
+	<div class="tontine-card__avatars">
+		<% tontine.members.each do |member| %>
+			<%= cl_image_tag(member.user.photo.key, width: 200, class: "avatar-large #{'past-position' if member.position < tontine.current_position} #{'current-position' if member.position == tontine.current_position}") %>
+		<% end %>
+	</div>
+</div>

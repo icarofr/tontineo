@@ -1,10 +1,17 @@
 <div class="container py-5" style="height: 20vh;">
-  <%= link_to root_path, class: 'home-link' do %>
-    <div class="logo-wrapper d-flex justify-content-center">
-      <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
-    </div>
-      <p class="home-title">Tontineo</p>
-  <% end %>
+   <% if user_signed_in? %>
+     <%= link_to dashboard_path, class: 'home-link' do %>
+       <div class="logo-wrapper d-flex justify-content-center">
+        <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+        <p class="home-title">Tontineo</p>
+      <% end %>
+    <% else %>
+        <div class="logo-wrapper d-flex justify-content-center">
+          <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+        <p class="home-title">Tontineo</p>
+    <% end %>
 </div>
 
 <div class="container d-flex justify-content-center flex-column" style="height: 60vh;">
@@ -64,5 +71,6 @@
   </div>
 
   <%= link_to "Créer un compte", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>
+  <%= link_to "Se connecter", new_user_session_path, class:"text-center"%>
 </div>  
 

@@ -12,35 +12,48 @@ Tontine.destroy_all
 User.destroy_all
 SwapRequest.destroy_all
 
-user = User.create!(first_name: "Gorgui", last_name: "Ronaldinho", company: "Le Wagon", email: "gorgui@lewagon.com", password: "gorgui123")
-file = URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
-user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+users = []
+
+gorgui = User.create!(first_name: "Gorgui", last_name: "faye", company: "Le Wagon", email: "gorgui@lewagon.com", password: "gorgui123")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
+gorgui.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 1"
+users << gorgui
+
 
 user = User.create!(first_name: "Samy", last_name: "Mokrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
 file = URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
 user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 2"
+users << samy
 
-user = User.create!(first_name: "jean-rodriguez", last_name: "kinouani", company: "Le Wagon", email: "jrkinouani@lewagon.com", password: "kinouani")
-file = URI.open("https://kitt.lewagon.com/placeholder/users/jrkinouani")
-user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+jean = User.create!(first_name: "jean-rodriguez", last_name: "kinouani", company: "Le Wagon", email: "jrkinouani@lewagon.com", password: "kinouani")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/jrkinouani")
+jean.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 3"
+users << jean
 
-user = User.create!(first_name: "Lionel", last_name: "Messi", company: "Le Wagon", email: "messi@lewagon.com", password: "messi123")
-file = URI.open("https://kitt.lewagon.com/placeholder/users/krokrob")
-user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+lionel = User.create!(first_name: "sebastien", last_name: "saunier", company: "Le Wagon", email: "sebastien@lewagon.com", password: "messi123")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/ssaunier")
+lionel.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 4"
+users << sebastien
 
-user = User.create!(first_name: "maradona", last_name: "diego", company: "Le Wagon", email: "maradona@lewagon.com", password: "maradona")
-file = URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
-user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+
+diego = User.create!(first_name: "thomas", last_name: "desmoulins", company: "Le Wagon", email: "thomas@lewagon.com", password: "maradona")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/tdesmoul")
+diego.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 5"
+users << thomas
 
-start_month = Date.today - rand(1..365)
+start_month = Date.today.beginning_of_month - 3.month
 payment_day = start_month + 30
 
-Tontine.create!(name: "Voyage", contribution: 300, start_month: start_month, payment_day: payment_day, participants: 5, status: "done", user: user)
+tontine = Tontine.create!(name: "Voyage", contribution: 300, start_month: start_month, payment_day: payment_day, participants: 5, status: "active", user: jean)
+users.each do |user|
+  Member.create(tontine: tontine, user: user, position: tontine.members.count + 1, status: 'confirmed')
+end
+
 puts "tontines"
 
 # FIRST_NAMES = ["Carlos", "Daniel", "Eduardo", "Fernando", "Gustavo", "Heitor", "Isabela", "João", "Lucas", "Miguel",
