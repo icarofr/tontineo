@@ -6,18 +6,35 @@
     <%= simple_form_for @tontine, html: { data: { turbo: false }} do |f| %>
       <%= f.input :name,label: 'Nom', placeholder: "Comment s'appelle votre tontine ?" %>
       <%= f.input :contribution,label: 'Contribution ', placeholder: 'Montant à verser' %>
-      <%= f.input :start_month, label: 'Mois de départ',  placeholder: 'Début de la tontine !' %>
+      <%= f.input :start_month,
+        as: :string,
+        label: 'Mois de départ',
+        placeholder: 'Début de la tontine !',
+        input_html:{
+          data: { flatpickr_target: 'monthPickr' }
+        } %>
       <%#= f.input :cover, as: :file %>
-      <%= f.input :payment_day, as: :string, label: 'Jour de paiement', placeholder: 'Jour du paiement' ,input_html:{
-        data: { flatpickr_target: 'paymentDayInput', }
-      } %>
-      <h2>Sélectionner des participants :</h2>
-      <%= f.association :members,
-                        as: :check_boxes,
-                        collection: User.all.where.not(id: current_user.id),
-                        wrapper_html: {class: 'd-flex'},
-                        input_html: {class: 'category-selector'},
-                        label_method: lambda { |member| render 'tontines/form_avatar', member: member } %>
+      <%= f.input :payment_day,
+        label: 'Jour de paiement',
+        as: :check_boxes,
+        placeholder: 'Jour du paiement',
+        collection: [1, 10, 20, 25],
+        wrapper_html: {class: 'd-flex'},
+        include_blank: false,
+        include_hidden: false,
+        wrapper_tag: :div,
+        wrapper_class: 'days-container',
+        label_method: lambda { |day| render 'tontines/day_label', day: day } %>
+      <!-- <h2>Sélectionner des participants :</h2> -->
+      <%= f.association :users,
+        label: 'Sélectionner des participants',
+        as: :check_boxes,
+        collection: User.all.where.not(id: current_user.id),
+        # wrapper_html: {class: 'd-flex'},
+        include_blank: false,
+        include_hidden: false,
+        input_html: {class: 'category-selector'},
+        label_method: lambda { |member| render 'tontines/form_avatar', member: member } %>
       <%#= f.input :participants,label: 'Participants', placeholder: "Nombre de participants !"%>
       <%# <%= f.input :users,label: 'Utilisateurs', placeholder: "Mail du participant !" %>
       <%# <%= f.input :image, label: 'Ta photo', placeholder: 'Envoie une photo' %>
