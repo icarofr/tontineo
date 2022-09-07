@@ -16,33 +16,33 @@ users = []
 
 gorgui = User.create!(first_name: "Gorgui", last_name: "faye", company: "Le Wagon", email: "gorgui@lewagon.com", password: "gorgui123")
 file =URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
-gorgui.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+gorgui.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 puts "create user 1"
 users << gorgui
 
 
 samy = User.create!(first_name: "samy", last_name: "Mokrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
 file = URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
-user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+user.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 puts "create user 2"
 users << samy
 
 jean = User.create!(first_name: "jean-rodriguez", last_name: "kinouani", company: "Le Wagon", email: "jrkinouani@lewagon.com", password: "kinouani")
 file =URI.open("https://kitt.lewagon.com/placeholder/users/jrkinouani")
-jean.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+jean.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 puts "create user 3"
 users << jean
 
 sebastien = User.create!(first_name: "sebastien", last_name: "saunier", company: "Le Wagon", email: "sebastien@lewagon.com", password: "messi123")
 file =URI.open("https://kitt.lewagon.com/placeholder/users/ssaunier")
-lionel.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+lionel.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 puts "create user 4"
 users << sebastien
 
 
 thomas = User.create!(first_name: "thomas", last_name: "desmoulins", company: "Le Wagon", email: "thomas@lewagon.com", password: "maradona")
 file = URI.open("https://kitt.lewagon.com/placeholder/users/tdesmoul")
-diego.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+diego.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 puts "create user 5"
 users << thomas
 
