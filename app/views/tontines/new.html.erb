@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="_form.css">
+<!-- <link rel="stylesheet" type="text/css" href="_form.css"> -->
 <div class="my-5 mx-3" >
   <link rel="stylesheet" type="text/css" href="_form.css">
   <h2 class="text-center m-3">Nouvelle tontine</h2>
@@ -16,14 +16,14 @@
       <%#= f.input :cover, as: :file %>
       <%= f.input :payment_day,
         label: 'Jour de paiement',
-        as: :check_boxes,
+        as: :radio_buttons,
         placeholder: 'Jour du paiement',
-        collection: [1, 10, 20, 25],
+        collection: [["1er", 1], ["10", 10], ["20", 20], ["25", 25]],
         wrapper_html: {class: 'd-flex'},
         include_blank: false,
         include_hidden: false,
         wrapper_tag: :div,
-        wrapper_class: 'days-container',
+        wrapper_class: 'days-container mb-3',
         label_method: lambda { |day| render 'tontines/day_label', day: day } %>
       <!-- <h2>Sélectionner des participants :</h2> -->
       <%= f.association :users,
@@ -33,7 +33,7 @@
         # wrapper_html: {class: 'd-flex'},
         include_blank: false,
         include_hidden: false,
-        input_html: {class: 'category-selector'},
+        input_html: {class: 'category-selector mb-3'},
         label_method: lambda { |member| render 'tontines/form_avatar', member: member } %>
       <%#= f.input :participants,label: 'Participants', placeholder: "Nombre de participants !"%>
       <%# <%= f.input :users,label: 'Utilisateurs', placeholder: "Mail du participant !" %>

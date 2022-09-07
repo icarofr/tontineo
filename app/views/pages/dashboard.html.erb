@@ -4,7 +4,6 @@
 		<div class="dashboard-header__infos">
 			<div class="dashboard-header__infos__name"><%= current_user.full_name %></div>
 			<div class="dashboard-header__infos__company"><%= current_user.company %></div>
-	    <%= link_to "Se deconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
 		</div>
 	</div>
  	<%= link_to "Créer une tontine", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>

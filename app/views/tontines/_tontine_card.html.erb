@@ -1,4 +1,4 @@
-<div class="tontine-card">
+<div class="tontine-card <%= 'pending' if tontine.status == 'pending' %>">
 	<div class="tontine-card__header">
 		<div class="tontine-card__header__name">
 			<%= link_to tontine.name , tontine_path(tontine) %>

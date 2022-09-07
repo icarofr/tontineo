@@ -14,7 +14,6 @@ class TontinesController < ApplicationController
   end
 
   def create
-    raise
     @tontine = Tontine.new(params_tontine)
     @tontine.user = current_user
     @tontine.status = "pending"
