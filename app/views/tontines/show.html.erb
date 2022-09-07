@@ -1,21 +1,22 @@
 <% content_for :chatroom_link do %>
   <div class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     <i class="fa-regular fa-comments"></i>
+    <p>Dashboard</p>
   </div>
 <% end -%>
 <div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <div class="container tontine pb-2"
+  <div class="container tontine pb-2"
       data-controller="tontine-subscription"
       data-tontine-subscription-tontine-id-value="<%= @tontine.id %>"
     >
-      <h1>#<%= @tontine.name %></h1>
+      <h1>Chatroom : <%= @tontine.name.capitalize %></h1>
       <div class="messages" data-tontine-subscription-target="messages">
         <% @tontine.messages.each do |message| %>
           <%= render "messages/message", message: message %>
         <% end %>
       </div>
-      <div class="card card-body">
+      <div class="row">
+        <div class="col-10">
         <%= simple_form_for [@tontine, @message],
            html: {data: {action: 
            "turbo:submit-end->tontine-subscription#resetForm"}, 
@@ -26,12 +27,16 @@
             placeholder: "Ecrivez votre message au membre",
             wrapper_html: {class: "flex-grow-1"}
           %>
-          <%= f.submit "Envoyez", class: "btn btn-primary mb-3" %>
-        <% end %>
+        </div>
+        <div class="col-2">
+            <%= button_tag( :class => "button_send") do %>
+              <i class="fa-solid fa-paper-plane"></i>
+            <% end %>
+         <% end %>
+        </div>
+      </div>
       </div>
     </div>
-  </div>
-</div>
 
 
 <% if @is_owner  %>

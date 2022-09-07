@@ -8,7 +8,7 @@
   flex-grow: 1;
 
   h1 {
-    border-bottom: 1px solid $gray-200;
+    border-bottom: 1px solid $purple;
     margin-bottom: 0;
     padding: 1rem;
   }
@@ -20,11 +20,14 @@
   }
 
   #new_message {
-    border-top: 1px solid $gray-200;
-    padding: 1rem;
-
+    padding: 0rem;
     .form-group {
       margin-bottom: 0;
     }
   }
+}
+.fas, .fa-solid {
+  font-weight: 900;
+  color:$purple ;
+  font-size: 32px;
 }
