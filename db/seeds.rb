@@ -14,15 +14,16 @@ SwapRequest.destroy_all
 
 users = []
 
-gorgui = User.create!(first_name: "Gorgui", last_name: "Ronaldinho", company: "Le Wagon", email: "gorgui@lewagon.com", password: "gorgui123")
+gorgui = User.create!(first_name: "Gorgui", last_name: "faye", company: "Le Wagon", email: "gorgui@lewagon.com", password: "gorgui123")
 file =URI.open("https://kitt.lewagon.com/placeholder/users/gorg27")
 gorgui.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 1"
 users << gorgui
 
-samy = User.create!(first_name: "samy", last_name: "Mohkrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
-file =URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
-samy.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
+
+user = User.create!(first_name: "Samy", last_name: "Mokrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
+user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 2"
 users << samy
 
@@ -32,17 +33,18 @@ jean.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 3"
 users << jean
 
-lionel = User.create!(first_name: "Lionel", last_name: "messi", company: "Le Wagon", email: "messi@lewagon.com", password: "messi123")
-file =URI.open("https://kitt.lewagon.com/placeholder/users/krokrob")
+lionel = User.create!(first_name: "sebastien", last_name: "saunier", company: "Le Wagon", email: "sebastien@lewagon.com", password: "messi123")
+file =URI.open("https://kitt.lewagon.com/placeholder/users/ssaunier")
 lionel.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 4"
-users << lionel
+users << sebastien
 
-diego = User.create!(first_name: "maradona", last_name: "diego", company: "Le Wagon", email: "maradona@lewagon.com", password: "maradona")
-file = URI.open("https://randomuser.me/api/portraits/men/86.jpg")
+
+diego = User.create!(first_name: "thomas", last_name: "desmoulins", company: "Le Wagon", email: "thomas@lewagon.com", password: "maradona")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/tdesmoul")
 diego.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 5"
-users << diego
+users << thomas
 
 start_month = Date.today.beginning_of_month - 3.month
 payment_day = start_month + 30
