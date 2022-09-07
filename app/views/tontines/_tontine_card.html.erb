@@ -1,7 +1,7 @@
 <div class="tontine-card">
 	<div class="tontine-card__header">
 		<div class="tontine-card__header__name">
-			<%= tontine.name %>
+			<%= link_to tontine.name , tontine_path(tontine) %>
 		</div>
 		<div class="tontine-card__header__contribution">
 			<%= tontine.contribution %>€<span>/mois</span>
