@@ -21,7 +21,7 @@ puts "create user 1"
 users << gorgui
 
 
-user = User.create!(first_name: "Samy", last_name: "Mokrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
+samy = User.create!(first_name: "samy", last_name: "Mokrane", company: "Le Wagon", email: "samy@lewagon.com", password: "samy123")
 file = URI.open("https://kitt.lewagon.com/placeholder/users/SamyMo")
 user.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 2"
@@ -33,14 +33,14 @@ jean.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 3"
 users << jean
 
-lionel = User.create!(first_name: "sebastien", last_name: "saunier", company: "Le Wagon", email: "sebastien@lewagon.com", password: "messi123")
+sebastien = User.create!(first_name: "sebastien", last_name: "saunier", company: "Le Wagon", email: "sebastien@lewagon.com", password: "messi123")
 file =URI.open("https://kitt.lewagon.com/placeholder/users/ssaunier")
 lionel.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 4"
 users << sebastien
 
 
-diego = User.create!(first_name: "thomas", last_name: "desmoulins", company: "Le Wagon", email: "thomas@lewagon.com", password: "maradona")
+thomas = User.create!(first_name: "thomas", last_name: "desmoulins", company: "Le Wagon", email: "thomas@lewagon.com", password: "maradona")
 file = URI.open("https://kitt.lewagon.com/placeholder/users/tdesmoul")
 diego.photo.attach(io: file, filename: "userg.png", content_type: "image/png")
 puts "create user 5"
