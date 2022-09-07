@@ -16,7 +16,7 @@
       <%# <%= cl_image_tag @tontine.cover.key, height: 300, width: 400, crop: :fill , class:"tontine_cover" %>
       <p> Montant Mensuel :  <%= @tontine.contribution %> € </p>
       <p> Début de la tontine : <%= @tontine.start_month.strftime("%d/%m/%Y") %>
-      <p> Date de réception : <%= @tontine.payment_day.strftime("%d/%m/%Y") %></p>
+      <p> Date de paiement : le <%= @tontine.payment_day %><%= "er" if @tontine.payment_day == 1 %> du mois</p>
       <div class="members_list">
         <% @tontine.users.each do |user| %>
           <%# <%=  @tontine.cover.key, height: 300, width: 400, crop: :fill , class:"tontine_cover" %>

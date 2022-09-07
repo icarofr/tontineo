@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_094725) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_105131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_094725) do
   create_table "swap_requests", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
+    t.integer "tontine_id"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,11 +77,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_094725) do
     t.string "name"
     t.integer "contribution"
     t.date "start_month"
-    t.date "payment_day"
     t.integer "participants"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "payment_day"
     t.index ["user_id"], name: "index_tontines_on_user_id"
   end
 
@@ -96,7 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_094725) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

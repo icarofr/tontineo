@@ -1,14 +1,5 @@
 // Define variables for your color scheme
 
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
-
 $background: #e5e7eb;
 $orange1: #C55300;
 $orange2: #D07000;
@@ -20,3 +11,11 @@ $red3: #990000;
 $lemond: #EAE509;
 $y: #F7EC09;
 $purple: #4558FF;
+
+$red: #FD1015;
+$blue: $purple;
+$yellow: #FFC65A;
+$orange: #E67E22;
+$green: #1EDD88;
+$gray: #0E0000;
+$light-gray: #F4F4F4;

@@ -49,7 +49,7 @@ users << thomas
 start_month = Date.today.beginning_of_month - 3.month
 payment_day = start_month + 30
 
-tontine = Tontine.create!(name: "Voiture", contribution: 300, start_month: start_month, payment_day: payment_day, participants: 5, status: "active", user: jean)
+tontine = Tontine.create!(name: "Voiture", contribution: 300, start_month: start_month, payment_day: 25, participants: 5, status: "active", user: jean)
 users.each do |user|
   Member.create(tontine: tontine, user: user, position: tontine.members.count + 1, status: 'confirmed')
 end

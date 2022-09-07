@@ -2,7 +2,14 @@
   display: flex;
   flex-wrap: inherit;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  > * {
+    flex-basis: 1px;
+    flex-grow: 1;
+  }
+  .log-out {
+    text-align: right;
+  }
 }
 .navbar-lewagon {
   background: white;

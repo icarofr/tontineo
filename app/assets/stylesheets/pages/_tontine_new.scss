@@ -5,11 +5,16 @@
   padding: 0.475rem 0.75rem;
 }
 
-.tontine_members legend {
-  display: none;
+// .tontine_users legend {
+//   display: none;
+// }
+
+.tontine_users .form-check {
+  display: inline-block;
+  padding-left: 0;
 }
 
-.tontine_members span {
+.tontine_users span {
   font-size: 9px;
   font-weight: bold;
 }
@@ -46,4 +51,40 @@ h2 {
 
 .new_tontine {
   font-weight: bold;
+}
+
+.days-container {
+  display: flex;
+  flex-wrap: wrap;
+  .form-check {
+    padding-left: 0;
+  }
+  input[type='radio'] {
+    display: none;
+  }
+}
+
+// mise en forme de la card
+.day-label {
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  font-weight: normal;
+  width: 60px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  span {
+    margin-left: 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
+
+// sélection des 'cards' associées aux check-boxes 'checked'
+.days-container input:checked + label .day-label {
+  background-color: black;
+  color: white;
 }

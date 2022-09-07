@@ -3,6 +3,9 @@
 	border-radius: 8px;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 	padding: 1.5rem;
+  &.pending {
+    background: #f5f5f5;
+  }
 }
 
 .tontine-card__header {
@@ -29,7 +32,10 @@
 	align-items: center;
 	flex-wrap: wrap;
 	.avatar-large {
-		margin-right: 0.2rem;
+		margin-left: -0.8rem;
+    &:first-of-type {
+      margin-left: 0;
+    }
 	}
 	.past-position {
 		filter: grayscale(100%);
