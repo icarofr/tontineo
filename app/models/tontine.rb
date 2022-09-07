@@ -3,7 +3,6 @@ class Tontine < ApplicationRecord
   has_many :messages
   has_many :members, -> { order(position: :asc) }, dependent: :destroy
   has_many :users, -> { order("members.position ASC") }, through: :members
-
   has_one_attached :cover
     
   STATUS = %w[pending  active done]

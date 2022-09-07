@@ -4,11 +4,11 @@
   <h2 class="text-center m-3">Nouvelle tontine</h2>
   <div class ="form_style" data-controller="flatpickr">
     <%= simple_form_for @tontine, html: { data: { turbo: false }} do |f| %>
-      <%= f.input :name,label: 'Name', placeholder: "Comment s'appelle votre tontine ?" %>
+      <%= f.input :name,label: 'Nom', placeholder: "Comment s'appelle votre tontine ?" %>
       <%= f.input :contribution,label: 'Contribution ', placeholder: 'Montant à verser' %>
-      <%= f.input :start_month, label: 'Start_month',  placeholder: 'Début de la tontine !' %>
-      <%= f.input :cover, as: :file %>
-      <%= f.input :payment_day, as: :string, label: 'Payment_day', placeholder: 'Jour du paiement' ,input_html:{
+      <%= f.input :start_month, label: 'Mois de départ',  placeholder: 'Début de la tontine !' %>
+      <%#= f.input :cover, as: :file %>
+      <%= f.input :payment_day, as: :string, label: 'Jour de paiement', placeholder: 'Jour du paiement' ,input_html:{
         data: { flatpickr_target: 'paymentDayInput', }
       } %>
       <h2>Sélectionner des participants :</h2>
