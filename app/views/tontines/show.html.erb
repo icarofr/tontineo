@@ -20,13 +20,9 @@
       <%= @tontine.contribution %>€<span>/mois</span>
     </div>
   </div>
-    <div class="date d-flex">
-      <div class=" justify-content-start">
+    <div class="date">
          Début <%= @tontine.start_month.strftime("%m/%Y") %>
-       </div>
-         <div class=" justify-content-end">
          Date fin: <%= (@tontine.start_month + (@tontine.users.count * 30)).strftime("%m/%Y") %>
-      </div>
     </div>
       <div class="members_list">
       <% @tontine.members.each do |member| %>
