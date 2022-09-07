@@ -39,10 +39,9 @@
 
   <body>
     <%= render 'layouts/navbar' unless action_name == 'home' %>
-    
-       <div class="<%= action_name == "home" ? 'h-100' : 'content-wrapper'  %>">    
-        <%= yield %>
-       </div>
-     <%= render 'layouts/footer' unless action_name == 'home' %>
+    <div class="page-content <%= action_name == "home" ? 'h-100' : 'content-wrapper' %>">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' if action_name != 'home' && user_signed_in? %>
   </body>
 </html>
