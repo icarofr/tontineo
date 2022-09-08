@@ -4,7 +4,7 @@
       <div>
         <%= yield(:navigation) if content_for?(:navigation) %>
       </div>
-      <%= link_to dashboard_path, class: 'home-link' do %>
+      <%= link_to current_page?(dashboard_path) ? root_path : dashboard_path, class: 'home-link' do %>
         <div class="logo-wrapper d-flex justify-content-center">
           <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
         </div>

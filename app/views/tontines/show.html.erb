@@ -20,17 +20,21 @@
   </div>
   <h4 class="underline mt-3 mb-2 text-center">Infos</h4>
   <div class="tontine-show__infos">
-    <div>
+    <!-- <div>
       <div class="label">Nombre de participants :</div>
-      <div class="value"><%= @tontine.members.count %></div>
+      <div class="value"><%#= @tontine.members.count %></div>
+    </div> -->
+    <div>
+      <div class="label">Montant Total :</div>
+      <div class="value color-purple"><%= number_with_delimiter(@tontine.contribution * @tontine.members.count, delimiter: " ") %>€</div>
     </div>
     <div>
       <div class="label">Versement mensuel :</div>
-      <div class="value"><%= number_with_delimiter(@tontine.contribution * @tontine.members.count, delimiter: " ") %>€</div>
+      <div class="value"><%= @tontine.contribution %>€<span>/mois</span></div>
     </div>
     <div>
-      <div class="label">Montant Total :</div>
-      <div class="value"><%= @tontine.contribution %>€<span>/mois</span></div>
+      <div class="label">Date de versement :</div>
+      <div class="value">le <%= @tontine.payment_day %><%= "er" if @tontine.payment_day == 1 %> du mois</div>
     </div>
     <div>
       <div class="label">Début :</div>
