@@ -1,12 +1,18 @@
+<% content_for(:navigation) do %>
+  <%= link_to dashboard_path, class: 'nav-link' do %>
+    <i class="fa-solid fa-backward"></i>
+  <% end -%>
+<% end -%>
+
 <div class="container">
   <div class="tontine-show__header mb-4 text-center">
     <h1 class="text-center"><%= @tontine.name %></h1>
     <div class="badge-status mb-2"><%= @tontine.status_fr %></div>
     <div class="tontine-show__header__chatroom">
-      <% if request.referer.include?("dashboard") %>
+      <% if request.referer&.include?("dashboard") %>
         <div class="counter">2</div>
       <% end -%>
-      <%= link_to '#', class: 'btn-rounded btn purple-btn' do %>
+      <%= link_to chatroom_tontine_path(@tontine), class: 'btn-rounded btn purple-btn' do %>
         <i class="fa-solid fa-comments"></i>
         <span>Discussion</span>
       <% end -%>
@@ -14,17 +20,21 @@
   </div>
   <h4 class="underline mt-3 mb-2 text-center">Infos</h4>
   <div class="tontine-show__infos">
-    <div>
+    <!-- <div>
       <div class="label">Nombre de participants :</div>
-      <div class="value"><%= @tontine.members.count %></div>
+      <div class="value"><%#= @tontine.members.count %></div>
+    </div> -->
+    <div>
+      <div class="label">Montant Total :</div>
+      <div class="value color-purple"><%= number_with_delimiter(@tontine.contribution * @tontine.members.count, delimiter: " ") %>€</div>
     </div>
     <div>
       <div class="label">Versement mensuel :</div>
-      <div class="value"><%= number_with_delimiter(@tontine.contribution * @tontine.members.count, delimiter: " ") %>€</div>
+      <div class="value"><%= @tontine.contribution %>€<span>/mois</span></div>
     </div>
     <div>
-      <div class="label">Montant Total :</div>
-      <div class="value"><%= @tontine.contribution %>€<span>/mois</span></div>
+      <div class="label">Date de versement :</div>
+      <div class="value">le <%= @tontine.payment_day %><%= "er" if @tontine.payment_day == 1 %> du mois</div>
     </div>
     <div>
       <div class="label">Début :</div>
@@ -49,3 +59,46 @@
   </div>
 </div>
 
+
+
+
+
+<% content_for :chatroom_link do %>
+  <div class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fa-regular fa-comments"></i>
+    <p>Dashboard</p>
+  </div>
+<% end -%>
+<div class="collapse" id="collapseExample">
+  <div class="container tontine pb-2"
+      data-controller="tontine-subscription"
+      data-tontine-subscription-tontine-id-value="<%= @tontine.id %>"
+    >
+      <h1>Chatroom : <%= @tontine.name.capitalize %></h1>
+      <div class="messages" data-tontine-subscription-target="messages">
+        <% @tontine.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-10">
+        <%= simple_form_for [@tontine, @message],
+           html: {data: {action:
+           "turbo:submit-end->tontine-subscription#resetForm"},
+            class: "d-flex"} do |f|
+        %>
+          <%= f.input :body,
+            label: false,
+            placeholder: "Ecrivez votre message au membre",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+        </div>
+        <div class="col-2">
+            <%= button_tag( :class => "button_send") do %>
+              <i class="fa-solid fa-paper-plane"></i>
+            <% end %>
+         <% end %>
+        </div>
+      </div>
+      </div>
+    </div>

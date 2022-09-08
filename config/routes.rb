@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       get :add_users_to_tontine
       get :accepte_member
       get :decline_member
+      get :chatroom
     end
+   resources :messages, only: :create
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

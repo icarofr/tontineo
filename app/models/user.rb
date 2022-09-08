@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :owned_tontines, class_name: 'Tontine', foreign_key: :user_id
   has_many :members
   has_many :tontines, through: :members, source: :tontine
+  has_many :messages, dependent: :destroy
 
   has_one_attached :photo
 
