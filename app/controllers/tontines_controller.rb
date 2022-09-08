@@ -85,6 +85,7 @@ class TontinesController < ApplicationController
 
   def chatroom
     @message = Message.new
+    session[:messages_counter] = nil
   end
 
   private

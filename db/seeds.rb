@@ -66,7 +66,7 @@ Message.create(tontine: tontine, user: gorgui, body: "Salut, tu dis 'Allez Paris
 Message.create(tontine: tontine, user: jean, body: "En bon supporter de l'OM, IMPOSSIBLE !!! ")
 Message.create(tontine: tontine, user: sebastien, body: "Donc tu dis juste 'Verratti top 5 meilleur milieu de terrain d'Europe... ")
 Message.create(tontine: tontine, user: jean, body: "Jamais de la vie je préfère m'endetter")
-Message.create(tontine: tontine, user: gorgui, body: "On y arriverra pas les gars, j'accepte le changemnt,
+Message.create(tontine: tontine, user: gorgui, body: "On y arriverra pas les gars, j'accepte le changement,
    c'est bien parce que je t'aime bien lol ")
 Message.create(tontine: tontine, user: jean, body: "Cool merci ")
 

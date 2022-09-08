@@ -26,20 +26,20 @@
 .tontine-show__header__chatroom {
   position: relative;
   display: inline-block;
-  .counter {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $red1;
-    color: white;
-    width: 1.2rem;
-    height: 1.2rem;
-    font-size: 0.8rem;
-    border-radius: 50%;
-  }
+}
+.counter {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $red1;
+  color: white;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 0.8rem;
+  border-radius: 50%;
 }
 
 .members_list {
