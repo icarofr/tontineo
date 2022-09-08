@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="tontine-show__header mb-4 text-center">
-    <h1 class="text-center"><%= @tontine.name %></h1>
+    <h1 class="text-center"><%= @tontine.name %> - <%= number_with_delimiter(@tontine.contribution * @tontine.members.count, delimiter: " ") %>€</h1>
     <div class="badge-status mb-2"><%= @tontine.status_fr %></div>
     <div class="tontine-show__header__chatroom">
       <% if request.referer&.include?("dashboard") %>
@@ -24,10 +24,10 @@
       <div class="label">Nombre de participants :</div>
       <div class="value"><%#= @tontine.members.count %></div>
     </div> -->
-    <div>
+<!--     <div>
       <div class="label">Montant Total :</div>
       <div class="value color-purple"><%= number_with_delimiter(@tontine.contribution * @tontine.members.count, delimiter: " ") %>€</div>
-    </div>
+    </div> -->
     <div>
       <div class="label">Versement mensuel :</div>
       <div class="value"><%= @tontine.contribution %>€<span>/mois</span></div>
@@ -38,18 +38,18 @@
     </div>
     <div>
       <div class="label">Début :</div>
-      <div class="value"><%= @tontine.start_month.strftime("%m/%Y") %></div>
+      <div class="value"><%= I18n.l(@tontine.start_month, format: "%B %Y") %></div>
     </div>
     <div>
       <div class="label">Fin :</div>
-      <div class="value"><%= (@tontine.start_month + @tontine.members.count.month).strftime("%m/%Y") %></div>
+      <div class="value"><%= I18n.l(@tontine.start_month + @tontine.members.count.month, format: "%B %Y") %></div>
     </div>
   </div>
   <h4 class="underline mt-3 mb-2 text-center">Calendrier</h4>
   <div class="members_list">
     <% @tontine.members.each do |member| %>
       <div class="card-planning <%= 'past-position' if member.position < @tontine.current_position %> <%= 'current-position' if member.position == @tontine.current_position%> ">
-        <strong><%= (@tontine.start_month + (member.position - 1).month).strftime("%m/%Y") %></strong>
+        <strong><%= I18n.l(@tontine.start_month + (member.position - 1).month, format: "%B %Y") %></strong>
         <div class="card-planning__user">
           <span><%= member.user.first_name %></span>
           <%= cl_image_tag(member.user.photo.key, width: 200, class: "avatar-large") %>
