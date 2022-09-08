@@ -3,13 +3,21 @@ import {createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="tontine-subscription"
 export default class extends Controller {
-  static values = { tontineId: Number}
+  static values = {
+    tontineId: Number,
+    userId: Number
+  }
   static targets = ["messages", "message"]
   
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "TontineChannel", id: this.tontineIdValue },
-      { received: data => this.#insertMessageAndScrollDown(data) }
+      {
+        received: (data) => {
+          this.#insertMessageAndScrollDown(data.message);
+          if (data.author_id != this.userIdValue) this.lastMessage.classList.remove('user-is-author');
+        }
+      }
     )
     console.log(this.channel);
     this.#scrollToLastMessage();
@@ -19,8 +27,8 @@ export default class extends Controller {
     return this.messageTargets[this.messageTargets.length - 1];
   }
 
-  #insertMessageAndScrollDown(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data);
+  #insertMessageAndScrollDown(message) {
+    this.messagesTarget.insertAdjacentHTML("beforeend", message);
     this.#scrollToLastMessage();
   }
 
