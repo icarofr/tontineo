@@ -1,0 +1,31 @@
+<% content_for(:navigation) do %>
+  <%= link_to tontine_path(@tontine), class: 'nav-link' do %>
+    <i class="fa-solid fa-backward"></i>
+  <% end -%>
+<% end -%>
+
+<div class="container chatroom-container"
+  data-controller="tontine-subscription"
+  data-tontine-subscription-tontine-id-value="<%= @tontine.id %>">
+  <div class="tontine-show__header mb-2 text-center">
+    <h1 class="text-center"><%= @tontine.name %></h1>
+    <div class="badge-status mb-2"><%= @tontine.status_fr %></div>
+  </div>
+  <div class="messages" data-tontine-subscription-target="messages">
+    <% @tontine.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+  <%= simple_form_for [@tontine, @message],
+    html: {data: {action:
+    "turbo:submit-end->tontine-subscription#resetForm"},
+    class: "d-flex"} do |f| %>
+    <%= f.input :body,
+      label: false,
+      placeholder: "Ecrivez votre message au membre",
+      wrapper_html: {class: "flex-grow-1"} %>
+    <%= button_tag( :class => "button_send") do %>
+      <i class="fa-solid fa-paper-plane"></i>
+    <% end %>
+ <% end %>
+</div>

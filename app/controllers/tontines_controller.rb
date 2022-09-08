@@ -1,5 +1,5 @@
 class TontinesController < ApplicationController
-  before_action :set_tontine, only: %i[edit show destroy update]
+  before_action :set_tontine, only: %i[edit show destroy update chatroom]
 
   def index
     @tontines = Tontine.all
@@ -81,6 +81,10 @@ class TontinesController < ApplicationController
     @tontine = Tontine.find(params[:id])
     current_user.members.where(tontine: @tontine).first.update(status: "declined")
     redirect_to dashboard_path
+  end
+
+  def chatroom
+    @message = Message.new
   end
 
   private

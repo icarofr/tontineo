@@ -37,7 +37,7 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
 
-  <body>
+  <body id="<%= controller_name %>_<%= action_name %>">
     <%= render 'layouts/navbar' unless current_page?(root_path) %>
     <div class="<%= current_page?(root_path) ? 'h-100' : 'page-content' %>">
       <%= yield %>

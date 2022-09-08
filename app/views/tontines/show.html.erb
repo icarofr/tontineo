@@ -1,12 +1,18 @@
+<% content_for(:navigation) do %>
+  <%= link_to dashboard_path, class: 'nav-link' do %>
+    <i class="fa-solid fa-backward"></i>
+  <% end -%>
+<% end -%>
+
 <div class="container">
   <div class="tontine-show__header mb-4 text-center">
     <h1 class="text-center"><%= @tontine.name %></h1>
     <div class="badge-status mb-2"><%= @tontine.status_fr %></div>
     <div class="tontine-show__header__chatroom">
-      <% if request.referer.include?("dashboard") %>
+      <% if request.referer&.include?("dashboard") %>
         <div class="counter">2</div>
       <% end -%>
-      <%= link_to '#', class: 'btn-rounded btn purple-btn' do %>
+      <%= link_to chatroom_tontine_path(@tontine), class: 'btn-rounded btn purple-btn' do %>
         <i class="fa-solid fa-comments"></i>
         <span>Discussion</span>
       <% end -%>

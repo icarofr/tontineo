@@ -1,0 +1,46 @@
+.message {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-bottom: 1rem;
+  max-width: 80%;
+  &.user-is-author {
+    margin-left: auto;
+    .message__content {
+      margin-left: 0;
+      margin-right: 0.5rem;
+      align-items: flex-end;
+    }
+    .message__content__author {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+}
+.message__content {
+  flex: 1;
+  margin-left: 0.5rem;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.message__content__author {
+  margin-left: 5px;
+  margin-right: 0;
+}
+.message__content__name {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.message__content__datetime {
+  font-size: 0.7rem;
+  font-weight: light;
+  opacity: 0.5;
+}
+.message__content__body {
+  background: white;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
