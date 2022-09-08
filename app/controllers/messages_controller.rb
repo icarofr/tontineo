@@ -4,14 +4,14 @@ class MessagesController < ApplicationController
 	@message = Message.new(message_params)
 	@message.tontine = @tontine
 	@message.user = current_user
-	 if @message.save
+	if @message.save
 	  TontineChannel.broadcast_to(
 	    @tontine,
-	    render_to_string(partial: "message", locals: {message: @message})
+	    render_to_string(partial: "messages/message", locals: { message: @message })
 	  )
-	  head :ok
+    head :ok
 		else
-		  render "tontines/show", status: :unprocessable_entity
+		  render "tontines/chatroom", status: :unprocessable_entity
 		end
   end
 

@@ -11,7 +11,7 @@ export default class extends Controller {
       { channel: "TontineChannel", id: this.tontineIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
-    // setTimeout(() => this.#scrollToLastMessage(), 0.01);
+    console.log(this.channel);
     this.#scrollToLastMessage();
   }
 
