@@ -11,7 +11,7 @@ class Tontine < ApplicationRecord
     done: "Terminée"
   }.freeze
 
-  STATUS = STATUS_TRANSLATIONS.keys.freeze
+  STATUS = STATUS_TRANSLATIONS.keys.map(&:to_s).freeze
 
   validates :status, inclusion: { in: Tontine::STATUS }
 
