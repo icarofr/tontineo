@@ -20,12 +20,12 @@
 </div>
 <div class="container sticky bottom-0 pb-5 px-4 d-flex flex-column" style="height: 20vh;">
   <!-- Button trigger modal -->
-  <button type="button" class="btn-rounded btn btn-outline-primary py-3 mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <button type="button" class="btn-rounded btn btn-outline-primary py-3 mb-3" data-bs-toggle="modal" data-bs-target="#concept_modal">
     Comment ça marche ?
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="concept_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -34,33 +34,41 @@
         </div>
         <div class="modal-body">
           <!-- start carousel>-->
-           <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+           <div id="concept_carousel" class="carousel slide" data-bs-touch="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <h3 class="text-center title">Etape 1</h3>
                 <h3 class="text-center">Rassembler plusieurs collègues pour 
                 créer une tontine</h3>
+                <div class="image-container">
                   <%= image_tag "img/group.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
+                </div>
               </div>
               <div class="carousel-item">
-                 <h3 class="text-center title">Etape 2</h3>
+                <h3 class="text-center title">Etape 2</h3>
                 <h3 class="text-center">Choisissez une épargne mensulelle
                 à partager entre vous</h3>
+                <div class="image-container">
                   <%= image_tag "img/epargne.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
+                </div>
               </div>
               <div class="carousel-item">
-                 <h3 class="text-center title">Etape 3</h3>
+                <h3 class="text-center title">Etape 3</h3>
                 <h3 class="text-center">A tour de rôle la personne<br/>
                 désignée chaque mois reçoit la somme de la tontine</h3>
+                <div class="image-container">
                   <%= image_tag "img/coins.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
+                </div>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#concept_carousel" data-bs-slide="prev">
+              <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+              <i class="fa-solid fa-chevron-left"></i>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <button class="carousel-control-next" type="button" data-bs-target="#concept_carousel" data-bs-slide="next">
+              <i class="fa-solid fa-chevron-right"></i>
+              <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
               <span class="visually-hidden">Next</span>
             </button>
           </div>
@@ -70,7 +78,7 @@
     </div>
   </div>
 
-  <%= link_to "Créer un compte", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>
-  <%= link_to "Se connecter", new_user_session_path, class:"text-center"%>
+  <%= link_to "Créer une tontine", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>
+  <%= link_to "Se connecter", new_user_session_path, class:"text-center" unless user_signed_in? %>
 </div>  
 

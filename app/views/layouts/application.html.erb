@@ -34,15 +34,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-      <%= render 'shared/ios_pwa_links' %>
+    <%= render 'shared/ios_pwa_links' %>
   </head>
 
   <body>
-    <%= render 'layouts/navbar' unless action_name == 'home' %>
-    
-       <div class="<%= action_name == "home" ? 'h-100' : 'content-wrapper'  %>">    
-        <%= yield %>
-       </div>
-     <%= render 'layouts/footer' unless action_name == 'home' %>
+    <%= render 'layouts/navbar' unless current_page?(root_path) %>
+    <div class="<%= current_page?(root_path) ? 'h-100' : 'page-content' %>">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' if action_name != 'home' && user_signed_in? %>
   </body>
 </html>

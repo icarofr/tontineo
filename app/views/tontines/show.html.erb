@@ -10,6 +10,7 @@
 <% else %>
 <% end %>
 
+<<<<<<< HEAD
 
 <div class="tontine-card">
   <div class="tontine-card__header">
@@ -18,6 +19,37 @@
     </div>
     <div class="tontine-card__header__contribution">
       <%= @tontine.contribution %>€<span>/mois</span>
+=======
+  <div class="tontine_description">
+    <div>
+      <%= @tontine.name %></p>
+      <%# <%= cl_image_tag @tontine.cover.key, height: 300, width: 400, crop: :fill , class:"tontine_cover" %>
+      <p> Montant Mensuel :  <%= @tontine.contribution %> € </p>
+      <p> Début de la tontine : <%= @tontine.start_month.strftime("%d/%m/%Y") %>
+      <p> Date de paiement : le <%= @tontine.payment_day %><%= "er" if @tontine.payment_day == 1 %> du mois</p>
+      <div class="members_list">
+        <% @tontine.users.each do |user| %>
+          <%# <%=  @tontine.cover.key, height: 300, width: 400, crop: :fill , class:"tontine_cover" %>
+          <div class="d-flex my-2">
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: "avatar inline", alt: "avatar"%>
+              <div class="d-flex flex-column align-items-start ps-3">
+                <p class="mb-1"><%= user.first_name %></p>
+                <p><%= @tontine.payment_day %></p>
+              </div>
+            <% else %>
+              <%= image_tag 'img/logo.png' %>
+              <div class="d-flex flex-column align-items-start ps-3">
+                <p class="mb-1"><%= user.first_name %></p>
+                <p><%= @tontine.payment_day %></p>
+              </div>
+            <% end %>
+          </div>
+          <%# <%= tontines.payment_day %>
+        <% end %>
+      </div>
+      <!--<p> Statut de la tontine : <%= @tontine.status%></p>-->
+>>>>>>> main
     </div>
   </div>
     <div class="date">
