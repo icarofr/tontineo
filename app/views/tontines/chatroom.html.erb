@@ -6,7 +6,8 @@
 
 <div class="container chatroom-container"
   data-controller="tontine-subscription"
-  data-tontine-subscription-tontine-id-value="<%= @tontine.id %>">
+  data-tontine-subscription-tontine-id-value="<%= @tontine.id %>"
+  data-tontine-subscription-user-id-value="<%= @tontine.id %>">
   <div class="tontine-show__header mb-2 text-center">
     <h1 class="text-center"><%= @tontine.name %></h1>
     <div class="badge-status mb-2"><%= @tontine.status_fr %></div>

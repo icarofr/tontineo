@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
 	if @message.save
 	  TontineChannel.broadcast_to(
 	    @tontine,
-	    render_to_string(partial: "messages/message", locals: { message: @message })
+	    message: render_to_string(partial: "messages/message", locals: { message: @message }),
+      author_id: current_user.id
 	  )
     head :ok
 		else
