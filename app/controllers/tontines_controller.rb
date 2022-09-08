@@ -1,6 +1,5 @@
 class TontinesController < ApplicationController
   before_action :set_tontine, only: %i[edit show destroy update]
-  # before_action :params_tontine, only %i[show]
 
   def index
     @tontines = Tontine.all
@@ -19,9 +18,10 @@ class TontinesController < ApplicationController
     @tontine = Tontine.new(params_tontine)
     @tontine.user = current_user
     @tontine.status = "pending"
-    params[:tontine][:member_ids].reject { |user_id| user_id == "" }.each do |user|
+    @tontine.participants = params[:tontine][:user_ids].size
+    params[:tontine][:user_ids].each do |user_id|
       Member.create(
-        user: User.find(user.to_i),
+        user_id: user_id.to_i,
         tontine: @tontine,
         position: @tontine.members.count + 2,
         status: "pending"
@@ -90,6 +90,9 @@ class TontinesController < ApplicationController
   end
 
   def params_tontine
-    params.require(:tontine).permit(:name, :contribution, :start_month, :payment_day, :participants, :cover)
+    params.require(:tontine).permit(:name, :contribution, :start_month, :payment_day,
+      :participants).tap do |params|
+      params[:start_month] = DateTime.parse(params[:start_month] + "/01")
+    end
   end
 end

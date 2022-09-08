@@ -1,13 +1,14 @@
-<div class="footer mt-2">
-  <div class="footer-links w-100 justify-item-center mt-5">
-    <%= link_to dashboard_path do %>
-     <i class="fa-solid fa-chart-line"></i>
-     <p>Dashboard</p>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= cl_image_tag current_user.photo.key, class:"card-user avatar-bordered d-flex justify-item-center"%>
-      <% end %> 
-    <%= content_for :chatroom_link %>
-    <!--<a href="#"><i class="fa-regular fa-comments"></i><p>Messages</p></a>-->
-  </div>
+<div class="footer">
+  <%= link_to dashboard_path, class: 'footer-nav' do %>
+    <i class="fa-solid fa-list-check"></i>
+    <span>Tontines</span>
+  <% end %>
+  <%= link_to "#", class: 'footer-nav' do %>
+    <i class="fa-solid fa-bell"></i>
+    <span>Notifications</span>
+  <% end -%>
+  <%= link_to "#", class: 'footer-nav' do %>
+    <i class="fa-solid fa-comments"></i>
+    <span>Discussions</span>
+  <% end -%>
 </div>

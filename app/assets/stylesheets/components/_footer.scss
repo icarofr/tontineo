@@ -1,57 +1,91 @@
-  .footer {
-  background: #99A3FF;
-  position: sticky;
-  display: flex;
-  bottom: 0;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 10px;
-  color: black;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-.footer-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: black;
-}
-.footer-links a {
-  color: black;
-  opacity: 1;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 0px 10px;
-  .fas, .fa-solid , .fa-regular {
-    display: flex;
-    justify-content: center;
-  }
-  p {
-    font-size: 12px;
-    color: black;
-  }
-}
-.footer-links a:hover {
-  opacity: 1;
-}
-.footer .fa-heart {
-  color: #D23333;
-}
-.footer-links p {
-  color: black;
+.page-content {
+  min-height: calc(100vh - 80px);
+  margin-bottom: 80px;
 }
 
-.card-user {
-  align-items: center !important;
-  top: -40px;
-  width: 40px;
-  height: 70px;
-  width: 70px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
+.footer {
+  height: 80px;
+  background: $purple;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   right: 0;
-  text-align: center;
+  left: 0;
 }
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  i {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+  span {
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+}
+
+
+// .footer {
+//   background: #99A3FF;
+//   position: sticky;
+//   display: flex;
+//   bottom: 0;
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 100px;
+//   padding: 0px 10px;
+//   color: black;
+//   grid-row-start: 2;
+//   grid-row-end: 3;
+// }
+// .footer-links {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   color: black;
+// }
+// .footer-links a {
+//   color: black;
+//   opacity: 1;
+//   text-decoration: none;
+//   font-size: 20px;
+//   padding: 0px 10px;
+//   .fas, .fa-solid , .fa-regular {
+//     display: flex;
+//     justify-content: center;
+//   }
+//   p {
+//     font-size: 12px;
+//     color: black;
+//   }
+// }
+// .footer-links a:hover {
+//   opacity: 1;
+// }
+// .footer .fa-heart {
+//   color: #D23333;
+// }
+// .footer-links p {
+//   color: black;
+// }
+
+// .card-user {
+//   align-items: center !important;
+//   top: -40px;
+//   width: 40px;
+//   height: 70px;
+//   width: 70px;
+//   position: absolute;
+//   margin-left: auto;
+//   margin-right: auto;
+//   left: 0;
+//   right: 0;
+//   text-align: center;
+// }

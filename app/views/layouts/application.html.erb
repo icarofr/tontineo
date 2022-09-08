@@ -1,25 +1,47 @@
 <!DOCTYPE html>
+<%  
+  meta_title = "Tontineo - Réveillez votre argent par le prêt entre collègues" 
+  meta_description = "Tontineo est une plateforme de prêt entre collègues qui vous permet de réveiller votre argent en le prêtant à vos collègues." 
+  meta_image = image_tag("img/og_image.png").split('"')[1]
+  meta_twitter_site = "@tontineo"
+%>
 <html>
   <head>
-    <title>Tontineo</title>
+    <title><%= meta_title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= meta_twitter_site %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= meta_twitter_site %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-      <%= render 'shared/ios_pwa_links' %>
+    <%= render 'shared/ios_pwa_links' %>
   </head>
 
   <body>
-    <%= render 'layouts/navbar' unless action_name == 'home' %>
-    
-       <div class="<%= action_name == "home" ? 'h-100' : 'content-wrapper'  %>">    
-        <%= yield %>
-       </div>
-     <%= render 'layouts/footer' unless action_name == 'home' %>
+    <%= render 'layouts/navbar' unless current_page?(root_path) %>
+    <div class="<%= current_page?(root_path) ? 'h-100' : 'page-content' %>">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' if action_name != 'home' && user_signed_in? %>
   </body>
 </html>

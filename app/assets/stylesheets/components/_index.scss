@@ -1,19 +1,21 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
-@import "form_legend_clear";
-@import "navbar";
+@import "button";
+@import "carousel";
+@import "chatroom";
 @import "dashboard";
 @import "dashboard_header";
-@import "button";
-@import "navbar";
 @import "footer";
-@import "pages";
-@import "chatroom";
 @import "form";
-@import "tontine_card";
+@import "form_legend_clear";
 @import "headers";
+@import "modal";
+@import "navbar";
+@import "pages";
+@import "show";
+@import "show_admin";
+@import "show_profile";
+@import "slider";
+@import "tontine_card";
 
-.content-wrapper {
-  min-height: calc(100vh - 74px - 100px);
-}
