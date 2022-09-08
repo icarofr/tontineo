@@ -1,0 +1,5 @@
+meta_product_name: "Tontineo"
+meta_title: "Tontineo - Financer vos projets à plusieurs avec vos collègues"
+meta_description: "Rassemblez-vous, mutualisez vos épargne et financer vos projets"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
