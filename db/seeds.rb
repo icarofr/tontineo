@@ -56,6 +56,32 @@ end
 
 puts "tontines"
 
+Message.create(tontine: tontine, user: jean, body: "Salut les gars!!")
+Message.create(tontine: tontine, user: thomas, body: "Salut ")
+Message.create(tontine: tontine, user: jean, body: "J'ai une petite demande à vous faire")
+Message.create(tontine: tontine, user: samy, body: "On t'écoute... ")
+Message.create(tontine: tontine, user: jean, body: "J'ai des dépenses imprévus et j'aimerais changer l'ordre avec toi
+  Gorgui si ça ne te dérange pas ce mois ci ? ")
+Message.create(tontine: tontine, user: gorgui, body: "Salut, tu dis 'Allez Paris !!!' et c'est ok ")
+Message.create(tontine: tontine, user: jean, body: "En bon supporter de l'OM, IMPOSSIBLE !!! ")
+Message.create(tontine: tontine, user: sebastien, body: "Donc tu dis juste 'Verratti top 5 meilleur milieu de terrain d'Europe... ")
+Message.create(tontine: tontine, user: jean, body: "Jamais de la vie je préfère m'endetter")
+Message.create(tontine: tontine, user: gorgui, body: "On y arriverra pas les gars, j'accepte le changemnt,
+   c'est bien parce que je t'aime bien lol ")
+Message.create(tontine: tontine, user: jean, body: "Cool merci ")
+
+
+# Message.create(tontine: tontine, user: jean, body: "Salut les gars!!")
+# Message.create(tontine: tontine, user: sebastien, body: "Salut ")
+# Message.create(tontine: tontine, user: samy, body: "Salut ")
+# Message.create(tontine: tontine, user: jean, body: "Désolé de demander mais est ce que je pourrais changer l'ordre avec
+#    toi Thomas le mois prochain ? j'ai un imprévu ")
+# Message.create(tontine: tontine, user: thomas, body: "Ok pas de problème je peux attendre le mois d'après ")
+# Message.create(tontine: tontine, user: sebastien, body: "Merci bien ")
+
+
+
+
 # FIRST_NAMES = ["Carlos", "Daniel", "Eduardo", "Fernando", "Gustavo", "Heitor", "Isabela", "João", "Lucas", "Miguel",
 #                "Pedro", "Rafael", "Sidney", "Thiago", "Vitor", "William", "Joana", "Maria", "Ana", "Beatriz", "Bianca",
 #                "Camila", "Carolina", "Catarina", "Clara", "Eduarda", "Gabriela", "Isabel", "Isadora", "Júlia", "Lara"]
