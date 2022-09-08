@@ -42,7 +42,9 @@ export default class extends Controller {
   }
 
   resetForm(event) {
-    event.target.reset()
+    event.target.reset();
+    window.scrollTo(0,0);
+    this.#scrollToLastMessage();
   }
 
   disconnect() {

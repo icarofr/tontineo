@@ -5,7 +5,7 @@ import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static targets = ['monthPickr', 'datePickr']
+  static targets = ['monthPickr']
 
   connect() {
     flatpickr(this.monthPickrTarget, {
@@ -21,10 +21,10 @@ export default class extends Controller {
         })
       ]
     })
-    flatpickr(this.datePickrTarget, {
-      disableMobile: true,
-      altInput: true,
-      locale: French
-    })
+    // flatpickr(this.datePickrTarget, {
+    //   disableMobile: true,
+    //   altInput: true,
+    //   locale: French
+    // })
   }
 }
