@@ -1,3 +1,46 @@
+.tontine-show__infos {
+  > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+  }
+  .label {
+    opacity: 0.5;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .value {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}
+.badge-status {
+  border: 1px solid black;
+  display: block;
+  padding: 0 1rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  width: fit-content;
+  margin: auto;
+}
+.tontine-show__header__chatroom {
+  position: relative;
+  display: inline-block;
+  .counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $red1;
+    color: white;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.8rem;
+    border-radius: 50%;
+  }
+}
 
 .members_list {
   font-family: 'Roboto', sans-serif;
@@ -28,4 +71,36 @@
   color: black;
   text-align: center;
   padding: 2vh 30px 0vh 30px;
+}
+.date{
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.card-planning {
+  // overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  color: black;
+  &.past-position{
+    background-color: #ECECEC;
+    .card-planning__user img {
+      filter: grayscale(100%);
+    }
+  }
+  &.current-position{
+    border: 2px solid $purple;
+  }
+}
+.card-planning__user {
+  font-size: 0.8em;
+  span {
+    opacity: 0.6;
+    margin-right: 5px;
+  }
 }

@@ -1,43 +1,51 @@
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" type="text/css" href="_show.css">
-
-<% if @is_owner  %>
-  <%= render "tontines/show_admin" %>
-<% else %>
-<% end %>
-
-  <div class="tontine_description">
-    <div>
-      <%= @tontine.name %></p>
-      <%# <%= cl_image_tag @tontine.cover.key, height: 300, width: 400, crop: :fill , class:"tontine_cover" %>
-      <p> Montant Mensuel :  <%= @tontine.contribution %> € </p>
-      <p> Début de la tontine : <%= @tontine.start_month.strftime("%d/%m/%Y") %>
-      <p> Date de paiement : le <%= @tontine.payment_day %><%= "er" if @tontine.payment_day == 1 %> du mois</p>
-      <div class="members_list">
-        <% @tontine.users.each do |user| %>
-          <%# <%=  @tontine.cover.key, height: 300, width: 400, crop: :fill , class:"tontine_cover" %>
-          <div class="d-flex my-2">
-            <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, class: "avatar inline", alt: "avatar"%>
-              <div class="d-flex flex-column align-items-start ps-3">
-                <p class="mb-1"><%= user.first_name %></p>
-                <p><%= @tontine.payment_day %></p>
-              </div>
-            <% else %>
-              <%= image_tag 'img/logo.png' %>
-              <div class="d-flex flex-column align-items-start ps-3">
-                <p class="mb-1"><%= user.first_name %></p>
-                <p><%= @tontine.payment_day %></p>
-              </div>
-            <% end %>
-          </div>
-          <%# <%= tontines.payment_day %>
-        <% end %>
-      </div>
-      <!--<p> Statut de la tontine : <%= @tontine.status%></p>-->
+<div class="container">
+  <div class="tontine-show__header mb-4 text-center">
+    <h1 class="text-center"><%= @tontine.name %></h1>
+    <div class="badge-status mb-2"><%= @tontine.status_fr %></div>
+    <div class="tontine-show__header__chatroom">
+      <% if request.referer.include?("dashboard") %>
+        <div class="counter">2</div>
+      <% end -%>
+      <%= link_to '#', class: 'btn-rounded btn purple-btn' do %>
+        <i class="fa-solid fa-comments"></i>
+        <span>Discussion</span>
+      <% end -%>
     </div>
   </div>
+  <h4 class="underline mt-3 mb-2 text-center">Infos</h4>
+  <div class="tontine-show__infos">
+    <div>
+      <div class="label">Nombre de participants :</div>
+      <div class="value"><%= @tontine.members.count %></div>
+    </div>
+    <div>
+      <div class="label">Versement mensuel :</div>
+      <div class="value"><%= number_with_delimiter(@tontine.contribution * @tontine.members.count, delimiter: " ") %>€</div>
+    </div>
+    <div>
+      <div class="label">Montant Total :</div>
+      <div class="value"><%= @tontine.contribution %>€<span>/mois</span></div>
+    </div>
+    <div>
+      <div class="label">Début :</div>
+      <div class="value"><%= @tontine.start_month.strftime("%m/%Y") %></div>
+    </div>
+    <div>
+      <div class="label">Fin :</div>
+      <div class="value"><%= (@tontine.start_month + @tontine.members.count.month).strftime("%m/%Y") %></div>
+    </div>
+  </div>
+  <h4 class="underline mt-3 mb-2 text-center">Calendrier</h4>
+  <div class="members_list">
+    <% @tontine.members.each do |member| %>
+      <div class="card-planning <%= 'past-position' if member.position < @tontine.current_position %> <%= 'current-position' if member.position == @tontine.current_position%> ">
+        <strong><%= (@tontine.start_month + (member.position - 1).month).strftime("%m/%Y") %></strong>
+        <div class="card-planning__user">
+          <span><%= member.user.first_name %></span>
+          <%= cl_image_tag(member.user.photo.key, width: 200, class: "avatar-large") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
