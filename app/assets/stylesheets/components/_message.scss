@@ -1,11 +1,12 @@
 .message {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
   margin-bottom: 1rem;
   max-width: 80%;
   &.user-is-author {
     margin-left: auto;
+    flex-direction: row-reverse;
     .message__content {
       margin-left: 0;
       margin-right: 0.5rem;
