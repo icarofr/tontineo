@@ -85,7 +85,7 @@ Message.create(tontine: tontine, user: jean, body: "Jamais de la vie je préfèr
 Message.create(tontine: tontine, user: gorgui, body: "On y arriverra pas les gars, j'accepte le changement,
    c'est bien parce que je t'aime bien lol ")
 Message.create(tontine: tontine, user: jean, body: "Cool merci ")
-Message.create(tontine: tontine, user: , sebastien, body: "Vous avez vu PSG-Juve ")
+Message.create(tontine: tontine, user: , sebastien, body: "Vous avez vu PSG-Juve ? ")
 Message.create(tontine: tontine, user: , samy, body: "Ne m'en parles pas, j'ai eu le bug avec mycanal")
 
 
