@@ -1,6 +1,13 @@
 .page-content {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 82px - 70px);
+  height: calc(100vh - 82px - 70px);
+  max-height: calc(100vh - 82px - 70px);
   margin-bottom: 70px;
+  overflow: scroll;
+}
+
+#tontines_chatroom .page-content {
+  margin-bottom: 0;
 }
 
 .footer {
