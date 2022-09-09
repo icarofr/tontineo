@@ -46,6 +46,22 @@ thomas.photo.attach(io: file, filename: "user.png", content_type: "image/png")
 puts "create user 5"
 users << thomas
 
+jesica = User.create!(first_name: "jesica", last_name: "kincaid", company: "Le Wagon", email: "jesica@lewagon.com", password: "jesica123")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/jjkincaid")
+jesica.photo.attach(io: file, filename: "user.png", content_type: "image/png")
+puts "create user 6"
+
+marion = User.create!(first_name: "marion", last_name: "Robert", company: "Le Wagon", email: "marion@lewagon.com", password: "marion123")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/marionrobert")
+marion.photo.attach(io: file, filename: "user.png", content_type: "image/png")
+puts "create user 7"
+
+clemence = User.create!(first_name: "clemence", last_name: "Clemence", company: "Le Wagon", email: "clemence@lewagon.com", password: "clemence123")
+file = URI.open("https://kitt.lewagon.com/placeholder/users/clemencp01")
+clemence.photo.attach(io: file, filename: "user.png", content_type: "image/png")
+puts "create user 8"
+
+
 start_month = Date.today.beginning_of_month - 3.month
 payment_day = start_month + 30
 
