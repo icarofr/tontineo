@@ -1,6 +1,10 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9efe4;
+}
  .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: #f9efe4;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,7 +14,7 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
-img.navbar-brand
+img.navbar-brand .img.logo-home
 {
    width: 40px;
 }
@@ -64,11 +68,6 @@ img.navbar-brand
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: white;
-  min-height: 100vh;
-}
 
 .container-fluid {
   max-width: 1050px;
