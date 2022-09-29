@@ -1,24 +1,84 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid navbar">
+  <div class="container-fluid">
     <% if user_signed_in? %>
-      <div>
-        <%= yield(:navigation) if content_for?(:navigation) %>
-      </div>
-      <%= link_to current_page?(dashboard_path) ? root_path : dashboard_path, class: 'home-link' do %>
-        <div class="logo-wrapper d-flex justify-content-center">
-          <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
-        </div>
+     <%= link_to dashboard_path, class: 'home-link' do %>
+       <div class="logo-wrapper d-flex justify-content-start">
+        <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        <p class="home-title">Tontineo</p>
+       </div>
       <% end %>
-      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link log-out" do %>
-        <i class="fa-solid fa-right-from-bracket"></i>
-      <% end -%>
     <% else %>
-      <%= link_to root_path do %>
-        <div class="logo-wrapper d-flex justify-content-center">
+        <div class="logo-wrapper d-flex justify-content-start">
           <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+          <p class="home-title">Tontineo</p>
         </div>
-      <% end -%>
     <% end %>
+     <%#= image_tag "img/apple-icon.png", class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+         <% if user_signed_in? %>
+          <li class="nav-item">
+             <%= link_to  "Dashboard", dashboard_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+          </li>
+          <li class="nav-item dropdown">
+            <!--<img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />-->
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
+          </li>
+          <%= link_to "Créer une tontine", new_tontine_path, class:"btn-rounded btn purple-btn py-3" %>
+          <% else %>
+         <li class="nav-item active">
+            <a class="nav-link" href="#">Comment ça marche ?</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Tarifs</a>
+          </li>
+            <li class="nav-item">
+            <%= link_to "Se connecter", new_user_session_path, class:"text-center" unless user_signed_in? %>
+            </li>
+          <% end %>
+      </ul>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid navbar">
+    <%# if user_signed_in? %>
+      <div>
+        <%#= yield(:navigation) if content_for?(:navigation) %>
+      </div>
+      <%#= link_to current_page?(dashboard_path) ? root_path : dashboard_path, class: 'home-link' do %>
+        <div class="logo-wrapper d-flex justify-content-center">
+          <%#= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+      <%# end %>
+      <%#= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link log-out" do %>
+        <i class="fa-solid fa-right-from-bracket"></i>
+      <%# end -%>
+    <%# else %>
+      <%#= link_to root_path do %>
+        <div class="logo-wrapper d-flex justify-content-center">
+          <%#= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        </div>
+      <%# end -%>
+    <%# end %>
+    </div>
+  </div>
+</div>
+ -->

@@ -36,12 +36,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= render 'shared/ios_pwa_links' %>
   </head>
-
-  <body id="<%= controller_name %>_<%= action_name %>">
-    <%= render 'layouts/navbar' unless current_page?(root_path) %>
-    <div class="<%= current_page?(root_path) ? 'h-100' : 'page-content' %>">
-      <%= yield %>
-    </div>
-    <%= render 'layouts/footer' if action_name != 'home' && user_signed_in? %>
+  <body>
+     <%= render 'layouts/navbar' %>
+     <%= yield %>
   </body>
+
+  <!-- <body id="<%= controller_name %>_<%= action_name %>">
+    <%#= render 'layouts/navbar' unless current_page?(root_path) %>
+    <div class="<%= current_page?(root_path) ? 'h-100' : 'page-content' %>">
+      <%#= yield %>
+    </div>
+    <%#= render 'layouts/footer' if action_name != 'home' && user_signed_in? %>
+  </body> -->
 </html>

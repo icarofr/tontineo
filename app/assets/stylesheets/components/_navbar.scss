@@ -1,4 +1,27 @@
- .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+ .navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+img.navbar-brand
+{
+   width: 40px;
+}
+.home-title {
+  text-align: center;
+  font-size: 28px;
+  color: black;
+}
+/*old css 
+
+ ./*navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
   display: flex;
   flex-wrap: inherit;
   align-items: center;
@@ -65,3 +88,4 @@ body {
   width: 100%;
   object-fit: contain;
 }
+*/
