@@ -1,14 +1,31 @@
 // Specific CSS for your home-page
 
+.img-fluid{
+	margin: 20px;
+	 box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 .logo-home {
 	height: 50px;
 } 
-
-
-.home-title {
-	text-align: center;
-	font-size: 48px;
-	color: black;
+.img-how-page
+{
+	width: 100%;
+  min-height: 350px;
+  border-radius: 0px;
+}
+p.text-dashboard {
+	font-family: 'Universal Sans',sans-serif;
+	color: #2f2f30;
+	font-size: 18px;
+	line-height: 1.5em;
+	font-weight: 500;
+}
+h3.text
+{
+	font-family: Garnett,sans-serif;
+	font-size: 32px;
+	line-height: 1.25em;
+	letter-spacing: -.8px;
 }
 a {
   text-decoration: none;

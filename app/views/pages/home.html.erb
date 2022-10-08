@@ -1,23 +1,77 @@
-<div class="container py-5" style="height: 20vh;">
-   <% if user_signed_in? %>
-     <%= link_to dashboard_path, class: 'home-link' do %>
+<!--<div class="container py-5" style="height: 20vh;">
+   <%# if user_signed_in? %>
+     <%#= link_to dashboard_path, class: 'home-link' do %>
        <div class="logo-wrapper d-flex justify-content-center">
-        <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+        <%#= image_tag "img/apple-icon.png", class: 'logo-home' %>
         </div>
         <p class="home-title">Tontineo</p>
-      <% end %>
-    <% else %>
+      <%# end %>
+    <%# else %>
         <div class="logo-wrapper d-flex justify-content-center">
-          <%= image_tag "img/apple-icon.png", class: 'logo-home' %>
+          <%#= image_tag "img/apple-icon.png", class: 'logo-home' %>
         </div>
         <p class="home-title">Tontineo</p>
-    <% end %>
+    <%# end %>
+</div>-->
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
+  <div class="container">
+    <h1>Financer vos projets <strong> <br/>par l'épargne</strong> collective <br/> entre collègues</h1>
+    <p></p>
+  </div>
 </div>
 
-<div class="container d-flex justify-content-center flex-column" style="height: 60vh;">
-  <h4 class="text-center pb-5"> Financer vos projets à plusieurs, <br/>entre collègues</h4>
-  <%= image_tag "img/img_home.png", class: '', style: 'border-radius: 0%;' %>
+<div class="container mt-5">
+  <div class="row">
+    <h2 class="text-center m-3">Comment ça marche ?</h2>
+    <div class="col-md-4">
+      <h3 class="text-center title">Etape 1</h3>
+      <h3 class="text-center">Rassembler plusieurs collègues pour 
+      créer une tontine</h3>
+      <div class="image-container">
+        <%= image_tag "img/group.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3 class="text-center title">Etape 2</h3>
+      <h3 class="text-center">Choisissez une épargne mensuelle
+      à partager entre vous</h3>
+      <div class="image-container">
+        <%= image_tag "img/epargne.png", class: 'img-how-page', style: 'border-radius: 0%;' %>
+      </div>
+    </div>
+    <div class="col-md-4"> 
+      <h3 class="text-center title">Etape 3</h3>
+      <h3 class="text-center">A tour de rôle la personne<br/>
+      désignée chaque mois reçoit la somme de la tontine</h3>
+      <div class="image-container">
+        <%= image_tag "img/coins.png", class: 'd-block w-10', style: 'border-radius: 0%;' %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="container d-flex justify-content-center mt-5">
+  <div class="row">
+    <div class="col-md-6">
+     <%= image_tag "img/dashboard.png", class: 'img-fluid' %>
+    </div>
+    <div class="col-md-6 p-5">
+      <h3 class="text">Dashboard à votre disposition</h3>
+      <p class="text-dashboard">Suivez mois par mois le déroulement des paiements et les personnes désignées pour reçevoir la tontine.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!--<div class="container d-flex justify-content-center flex-column" style="height: 60vh;">
+  <h4 class="text-center pb-5"> Financer vos projets à plusieurs, <br/>entre collègues</h4>
+  <%#= image_tag "img/img_home.png", class: '', style: 'border-radius: 0%;' %>
+</div>-->
 <div class="container sticky bottom-0 pb-5 px-4 d-flex flex-column" style="height: 20vh;">
   <!-- Button trigger modal -->
   <button type="button" class="btn-rounded btn btn-outline-primary py-3 mb-3" data-bs-toggle="modal" data-bs-target="#concept_modal">
@@ -37,28 +91,10 @@
            <div id="concept_carousel" class="carousel slide" data-bs-touch="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <h3 class="text-center title">Etape 1</h3>
-                <h3 class="text-center">Rassembler plusieurs collègues pour 
-                créer une tontine</h3>
-                <div class="image-container">
-                  <%= image_tag "img/group.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
-                </div>
               </div>
               <div class="carousel-item">
-                <h3 class="text-center title">Etape 2</h3>
-                <h3 class="text-center">Choisissez une épargne mensuelle
-                à partager entre vous</h3>
-                <div class="image-container">
-                  <%= image_tag "img/epargne.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
-                </div>
               </div>
               <div class="carousel-item">
-                <h3 class="text-center title">Etape 3</h3>
-                <h3 class="text-center">A tour de rôle la personne<br/>
-                désignée chaque mois reçoit la somme de la tontine</h3>
-                <div class="image-container">
-                  <%= image_tag "img/coins.png", class: 'd-block w-100', style: 'border-radius: 0%;' %>
-                </div>
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#concept_carousel" data-bs-slide="prev">

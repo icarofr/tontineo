@@ -1,18 +1,32 @@
-<div class="footer">
-  <%= link_to dashboard_path, class: 'footer-nav' do %>
+<div class="footer stickyFooter">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Codé avec <i class="fas fa-heart"></i> par <a href="https://twitter.com/jrkinouani" target="blank">Jrkinouani and co </a>
+  </div>
+</div>
+
+
+<!--<div class="footer">
+  <%#= link_to dashboard_path, class: 'footer-nav' do %>
     <i class="fa-solid fa-list-check"></i>
     <span>Tontines</span>
-  <% end %>
-  <%= link_to "#", class: 'footer-nav' do %>
+  <#% end %>
+  <#%= link_to "#", class: 'footer-nav' do %>
     <i class="fa-solid fa-bell"></i>
     <span>Notifications</span>
-  <% end -%>
-  <%= link_to "#", class: 'footer-nav footer-chatrooms' do %>
+  <%# end -%>
+  <%#= link_to "#", class: 'footer-nav footer-chatrooms' do %>
     <i class="fa-solid fa-comments">
-      <% if session[:messages_counter].present? %>
+      <%# if session[:messages_counter].present? %>
         <div class="counter"><%= session[:messages_counter] %></div>
-      <% end -%>
+      <%# end -%>
     </i>
     <span>Discussions</span>
-  <% end -%>
+  <%# end -%>
 </div>

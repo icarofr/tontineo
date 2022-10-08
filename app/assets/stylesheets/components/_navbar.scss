@@ -1,4 +1,31 @@
- .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9efe4;
+}
+ .navbar-lewagon {
+  justify-content: space-between;
+  background-color: #f9efe4;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+img.navbar-brand .img.logo-home
+{
+   width: 40px;
+}
+.home-title {
+  text-align: center;
+  font-size: 28px;
+  color: black;
+}
+/*old css 
+
+ ./*navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
   display: flex;
   flex-wrap: inherit;
   align-items: center;
@@ -41,11 +68,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: white;
-  min-height: 100vh;
-}
 
 .container-fluid {
   max-width: 1050px;
@@ -65,3 +87,4 @@ body {
   width: 100%;
   object-fit: contain;
 }
+*/
