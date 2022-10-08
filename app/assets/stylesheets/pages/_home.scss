@@ -1,8 +1,7 @@
 // Specific CSS for your home-page
 
 .img-fluid{
-	margin: 20px;
-	 box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	margin: 0px;
 }
 .logo-home {
 	height: 50px;
@@ -20,12 +19,18 @@ p.text-dashboard {
 	line-height: 1.5em;
 	font-weight: 500;
 }
-h3.text
+h2.text-center
 {
-	font-family: Garnett,sans-serif;
-	font-size: 32px;
-	line-height: 1.25em;
-	letter-spacing: -.8px;
+	font-family: Charter,Georgia,sans-serif;
+	font-size: 40px;
+	line-height: 1.4em;
+	margin-bottom: 30px;
+}
+h3.text-center
+{
+	font-family: Charter,Georgia,sans-serif;
+	font-size: 24px;
+	line-height: 1.4em;
 }
 a {
   text-decoration: none;
