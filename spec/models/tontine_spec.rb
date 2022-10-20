@@ -1,37 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Tontine, type: :model do
-  subject {
-    tontine = Tontine.create!(name: "Voiture",
-      contribution: 300, 
-      start_month: start_month, 
-      payment_day: 25, participants: 5, 
-      status: "active", user: jean)
-  }
-
-  it "is valid with valid attributes" do
-    expect(subject).to be_valid
+  it 'returns name for a tontine' do
+    tontine = Tontine.create(name: "congo")
+    expect(tontine.name).to eq 'congo'
   end
 
-  it "is not valid without a name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  it 'check if participants is type integer' do
+      tontine = Tontine.create(participants: 5 )
+      expect(tontine.participants).to be(5)
   end
-
-  it "is not valid without a contribution" do
-    subject.contribution = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without a start_month" do
-    subject.start_month = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without a payment_day" do
-    subject.payment_day = nil
-    expect(subject).to_not be_valid
-  end
-
 end
-
